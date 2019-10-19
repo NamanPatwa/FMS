@@ -8,6 +8,7 @@ public class TrainingProgram {
 	private int facultyCode;
 	private Date startDate;
 	private Date endDate;
+	
 	public int getTrainingCode() {
 		return trainingCode;
 	}
