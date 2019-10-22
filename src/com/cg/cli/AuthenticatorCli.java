@@ -51,11 +51,11 @@ public class AuthenticatorCli {
 		EmployeeMaster employee = service.authenticateUser(employeeId, password);
 		
 		switch (employee.getRole()) {
-		case "Participant": new ParticipantCli().participantView();
+		case "Participant": new ParticipantCli().participantView(employee);
 			break;
-		case "Admin": new AdminCli().AdminView();
+		case "Admin": new AdminCli().AdminView(employee);
 			break;
-		case "Co-Ordinator": new CoOrdinatorCli().coordinatorView();
+		case "Co-Ordinator": new CoOrdinatorCli().coordinatorView(employee);
 		}
 	}
 
