@@ -4,10 +4,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Properties;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.cg.bean.Participant;
 import com.cg.exception.ParticipantNotFoundException;
+import com.cg.exception.TrainingProgramNotFoundException;
 
 public class ParticipantDaoImpl implements ParticipantDao {
 
@@ -60,6 +62,39 @@ public class ParticipantDaoImpl implements ParticipantDao {
 	public boolean deleteParticipantByParticipantId(int participantCode) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public List<Participant> trainingByParticicpant(int participantCode) throws TrainingProgramNotFoundException {
+		Participant p=null;
+		Connection conn = null;
+        List<Participant> participant;
+		try {
+			conn = JdbcUtil.getConnection();
+			PreparedStatement stmt = conn.prepareStatement(findTrainingByParticipant);
+			stmt.setInt(1, participantCode);
+			
+			ResultSet result = stmt.executeQuery();
+			participant=new ArrayList<Participant>();
+			while (result.next()) {
+				Participant par = new Participant();
+				par.setTrainingcode(result.getInt(1));
+				par.setParticipantId(result.getInt(2));
+				participant.add(par);
+			}
+			if (participant.size() == 0) {
+				throw new TrainingProgramNotFoundException();}
+			return participant;
+		} catch (SQLException e) {
+			throw new TrainingProgramNotFoundException(e.getMessage());
+		} finally {
+			try {
+				if (conn != null)
+					conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 }

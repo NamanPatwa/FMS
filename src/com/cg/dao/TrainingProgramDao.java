@@ -13,8 +13,8 @@ public interface TrainingProgramDao {
 	String removeTrainingProgram = "DELETE from TRAINING_MASTER where TRAINING_CODE=?";
 	String addTrainingProgram = "INSERT INTO TRAINING_MASTER VALUES (trainingcode_seq.nextval, ?, ?, ?, ?)";
 	String getTrainingCode = "SELECT trainingcode_seq.currval FROM DUAL";
-	
-    List<TrainingProgram> fetchAllTrainingProgram() throws TrainingProgramNotFoundException;
+    
+	List<TrainingProgram> fetchAllTrainingProgram() throws TrainingProgramNotFoundException;
 	
 	TrainingProgram fetchTrainingProgramByTrainingCode(int code) throws TrainingProgramNotFoundException;
 	
