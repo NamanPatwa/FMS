@@ -94,6 +94,7 @@ public class AuthenticatorCli {
 			break;
 			
 		}
+		service.addUser(employeeId, name, password, role);
 		System.out.println("Employee Added Successfully");
 	}
 }
