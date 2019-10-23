@@ -31,7 +31,7 @@ public class AuthenticatorCli {
 				break;
 			case 2: login();
 				break;
-			case 4: System.exit(0);
+			case 3: System.exit(0);
 			default: System.out.println("Please enter correct option");
 			}
 		}
