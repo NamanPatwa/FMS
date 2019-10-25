@@ -18,7 +18,7 @@ public interface TrainingProgramDao {
 	
 	TrainingProgram fetchTrainingProgramByTrainingCode(int code) throws TrainingProgramNotFoundException;
 	
-	TrainingProgram updateTrainingProgram(int code) throws TrainingProgramNotFoundException;
+	int updateTrainingProgram(TrainingProgram training) throws TrainingProgramNotFoundException;
 	
 	boolean removeTrainingProgram(int code) throws TrainingProgramNotFoundException;
 
