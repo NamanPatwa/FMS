@@ -52,8 +52,10 @@ public class FacultyCli {
 					
 		Faculty faculty = new Faculty();
 //		String previousSkillset = faculty.getSkillSet();
+//		System.out.println("previous skillset: " + previousSkillset);
 //		String newSkillset = previousSkillset.concat(skillset);
-		
+//		System.out.println("new skillset: " + newSkillset);
+//		
 		faculty.setFacultyId(Integer.parseInt(facultyId));
 		faculty.setSkillSet(skillset);
 		
