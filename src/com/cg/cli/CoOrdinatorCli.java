@@ -8,7 +8,6 @@ import com.cg.bean.TrainingProgram;
 import com.cg.exception.TrainingProgramNotFoundException;
 import com.cg.service.CoordinatorService;
 import com.cg.service.CoordinatorServiceImpl;
-import com.sun.xml.internal.bind.v2.runtime.Coordinator;
 
 public class CoOrdinatorCli {
 	private static CoordinatorService service;
@@ -93,7 +92,16 @@ public class CoOrdinatorCli {
 	}
 
 	private static void showAllTrainingProgram() {
-		// TODO Auto-generated method stub
+
+		try {
+			List<TrainingProgram> result = service.fetchAllTrainingProgram();
+			for (TrainingProgram t : result) {
+				System.out.println(t.toString());
+			}
+		} catch (TrainingProgramNotFoundException e) {
+			System.out.println("No Training Program exists for the moment..Sorry!");
+			e.printStackTrace();
+		}
 
 	}
 
