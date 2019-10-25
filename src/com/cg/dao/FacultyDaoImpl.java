@@ -15,56 +15,39 @@ public class FacultyDaoImpl implements FacultyDao {
 		
 		Connection conn = null;
 		
-//		try {
-//			conn = JdbcUtil.getConnection();
-//			PreparedStatement stmt = conn.prepareStatement(saveFacultySkillsetQuery);
-//			stmt.setInt(1, faculty.getFacultyId());
-//			stmt.setString(2, faculty.getSkillSet());
-//			System.out.println("before saved query");
-//			stmt.executeUpdate();		
-//			System.out.println("saved query");
-//			ResultSet result = stmt.executeQuery(fetchFacultyIdQuery);
-//			if(result.next()) {
-//				System.out.println("fetch query");
-//				return result.getInt(1);
-//			}
-//			else
-//			{
-//				System.out.println("no fetch query result");
-//				return 0;
-//			}
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//			throw new FacultyDoesNotExist(e.getMessage());
-//		} finally {
-//			if(conn != null)
-//			try {
-//					conn.close();
-//			} catch (SQLException e) {
-//				e.printStackTrace();
-//			}
-//		}
-		
-		
-		
-		
-		
 		try {
 			conn = JdbcUtil.getConnection();
 			PreparedStatement stmt = conn.prepareStatement(fetchFacultyIdQuery);
 			stmt.setInt(1, faculty.getFacultyId());
 			ResultSet result = stmt.executeQuery();
+			
+			PreparedStatement stmt2 = conn.prepareStatement(fetchPreviousSkillsetQuery);
+			stmt2.setInt(1, faculty.getFacultyId());
+			ResultSet rs = stmt2.executeQuery();
+			
 			if(!result.next()) {
 				System.out.println("no fetch query result");
 				throw new FacultyDoesNotExist("Faculty id does not exist..");
-			} else {
+			} else if(!rs.next()){
 				PreparedStatement stmt1 = conn.prepareStatement(saveFacultySkillsetQuery);
 				stmt1.setInt(1, faculty.getFacultyId());
 				stmt1.setString(2, faculty.getSkillSet());
 				System.out.println("before saved query");
 				stmt1.executeUpdate();
 				System.out.println("saved query");
-			}
+			} else {
+					PreparedStatement stmt3 = conn.prepareStatement(updateFacultySkillsetQuery);
+					stmt3.setInt(2, faculty.getFacultyId());
+					
+					String newSkillset = null, delimiter = " , ";
+					String previousSkillset = rs.getString(2);
+					System.out.println("previous skillset: " + previousSkillset);
+					previousSkillset = previousSkillset.concat(delimiter);
+;					newSkillset = previousSkillset.concat(faculty.getSkillSet());
+					stmt3.setString(1, newSkillset);
+					stmt3.executeUpdate();
+					System.out.println("after update query..");
+					}
 				return result.getInt(1);
 		} catch (SQLException e) {
 			e.printStackTrace();
