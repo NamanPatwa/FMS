@@ -111,26 +111,25 @@ public class TrainingProgramDaoImpl implements TrainingProgramDao {
 	}
 
 	@Override
-	public TrainingProgram updateTrainingProgram(int code) throws TrainingProgramNotFoundException {
-		Connection conn=null;
-		TrainingProgram program=null;
+	public int updateTrainingProgram(TrainingProgram training) throws TrainingProgramNotFoundException {
+		Connection conn = null;
 		try {
 			conn = JdbcUtil.getConnection();
 			PreparedStatement stmt = conn.prepareStatement(updateTrainingProgram);
-			stmt.setInt(1, code);
+			stmt.setInt(1, training.getCourseCode());
+			stmt.setInt(2, training.getFacultyCode());
+			stmt.setDate(3, (Date) training.getStartDate());
+			stmt.setDate(4, (Date) training.getEndDate());
 			
-			ResultSet result = stmt.executeQuery();
-			if(result.next()) {
-				program = new TrainingProgram();
-				program.setTrainingCode(result.getInt(1));
-				program.setCourseCode(result.getInt(1));
-				program.setStartDate(result.getDate(2));
-				program.setEndDate(result.getDate(3));
-			} else
-				throw new TrainingProgramNotFoundException("Training Program does not exist..");
-			return program;
+			stmt.executeUpdate();
+			ResultSet rs = conn.createStatement().executeQuery(fetchTrainingProgramByTrainingCode);
+			if(rs.next()) 
+				return rs.getInt(1);
+			else
+				return 0;
 		} catch (SQLException e) {
-			throw new TrainingProgramNotFoundException(e.getMessage());
+			e.printStackTrace();
+			throw new TrainingProgramNotFoundException("Failure to update new course");
 		} finally {
 			try {
 				if(conn != null)
@@ -164,4 +163,5 @@ public class TrainingProgramDaoImpl implements TrainingProgramDao {
 		}
 
 	}
+
 }

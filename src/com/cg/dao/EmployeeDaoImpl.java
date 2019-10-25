@@ -11,7 +11,7 @@ import com.cg.exception.FacultyDoesNotExist;
 public class EmployeeDaoImpl implements EmployeeDao {
 
 	@Override
-	public boolean checkRole(int employeeid) throws FacultyDoesNotExist {
+	public boolean checkFaculty(int employeeid) throws FacultyDoesNotExist {
 		Connection conn = null;
 		EmployeeMaster employee = null;
 		
