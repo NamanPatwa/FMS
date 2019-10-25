@@ -41,20 +41,67 @@ public class ParticipantDaoImpl implements ParticipantDao {
 	}
 
 	@Override
-	public Participant findParticipantByTrainingCode(int trainingCode) {
-		// TODO Auto-generated method stub
-		return null;
+	public Participant findParticipantByTrainingCode(int trainingCode) throws ParticipantNotFoundException {
+		Connection conn = null;
+		Participant participant = null;
+		
+		try {
+			conn = JdbcUtil.getConnection();
+			PreparedStatement stmt = conn.prepareStatement(findParticipantByTrainingCodeQuery);
+			stmt.setInt(1, trainingCode);
+			
+			ResultSet result = stmt.executeQuery();
+			if(result.next()) {
+				participant = new Participant();
+				participant.setTrainingcode(result.getInt(1));
+				participant.setParticipantId(result.getInt(2));
+			} else 
+				throw new ParticipantNotFoundException("No records found with training code: "+trainingCode);
+			return participant;
+		} catch (SQLException e) {
+			throw new ParticipantNotFoundException(e.getMessage());
+		}finally {
+			try {
+				if(conn != null)
+					conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 	@Override
-	public Participant findParticipantByParticipantCode(int participantCode) {
-		// TODO Auto-generated method stub
-		return null;
+	public Participant findParticipantByParticipantCode(int participantCode) throws ParticipantNotFoundException {
+		Connection conn = null;
+		Participant participant = null;
+		
+		try {
+			conn = JdbcUtil.getConnection();
+			PreparedStatement stmt = conn.prepareStatement(findParticipantByParticipantIdQuery);
+			stmt.setInt(1, participantCode);
+			
+			ResultSet result = stmt.executeQuery();
+			if(result.next()) {
+				participant = new Participant();
+				participant.setTrainingcode(result.getInt(1));
+				participant.setParticipantId(result.getInt(2));
+			} else 
+				throw new ParticipantNotFoundException("No records found with participant code: "+participantCode);
+			return participant;
+		} catch (SQLException e) {
+			throw new ParticipantNotFoundException(e.getMessage());
+		}finally {
+			try {
+				if(conn != null)
+					conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 	@Override
 	public boolean deleteParticipantByTrainingCode(int trainingCode) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
@@ -90,6 +137,34 @@ public class ParticipantDaoImpl implements ParticipantDao {
 		} finally {
 			try {
 				if (conn != null)
+					conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	@Override
+	public boolean checkIfEnrolled(int trainingCode, int participantCode) throws ParticipantNotFoundException {
+		Connection conn = null;
+		Participant participant = null;
+		
+		try {
+			conn = JdbcUtil.getConnection();
+			PreparedStatement stmt = conn.prepareStatement(findParticipantByParticipantIdQuery);
+			stmt.setInt(1, trainingCode);
+			stmt.setInt(2, participantCode);
+			
+			ResultSet result = stmt.executeQuery();
+			if(result.next()) {
+				return true;
+			} else 
+				return false;
+		} catch (SQLException e) {
+			throw new ParticipantNotFoundException(e.getMessage());
+		}finally {
+			try {
+				if(conn != null)
 					conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
