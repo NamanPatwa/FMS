@@ -10,7 +10,7 @@ import com.cg.exception.TrainingProgramNotFoundException;
 
 public interface ParticipantService {
 
-	String prs_cmmRule = "[1-5]{1}";
+	String prs_cmmRule = "[1-5]{0,1}";
 	String clrfy_doubtRule = "[1-5]{1}";
 	String tmRule = "[1-5]{1}";
 	String hnd_outRule = "[1-5]{1}";

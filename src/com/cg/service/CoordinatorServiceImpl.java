@@ -47,7 +47,7 @@ public class CoordinatorServiceImpl implements CoordinatorService {
 	}
 
 	@Override
-	public int updateTrainingProgram(TrainingProgram training) throws TrainingProgramNotFoundException {
+	public TrainingProgram updateTrainingProgram(TrainingProgram training) throws TrainingProgramNotFoundException {
 		return trainingProgramDao.updateTrainingProgram(training);
 	}
 
@@ -138,6 +138,30 @@ public class CoordinatorServiceImpl implements CoordinatorService {
 		boolean val =  date.matches(validateDate);
 		if(val == false)
 			System.out.println("Invalid Date");
+		return val;
+	}
+	
+	@Override
+	public boolean validateCourseId(String courseId) {
+		boolean val = courseId.matches(courseIdRule);
+		if(val == false)
+			System.out.println("Invalid course id");
+		return val;
+	}
+		
+	@Override
+	public boolean validateTrainingId(String trainingId) {
+		boolean val = trainingId.matches(trainingIdRule);
+		if(val == false)
+			System.out.println("Invalid training id");
+		return val;
+	}
+	
+	@Override
+	public boolean validateFacultyId(String facultyid) {
+		boolean val = facultyid.matches(facultyIdRule);
+		if(val == false)
+			System.out.println("Invalid faculty id");
 		return val;
 	}
 

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.cg.bean.TrainingProgram;
+import com.cg.exception.InvalidCourseException;
 import com.cg.exception.TrainingProgramNotFoundException;
 
 public class TrainingProgramDaoImpl implements TrainingProgramDao {
@@ -120,22 +121,32 @@ public class TrainingProgramDaoImpl implements TrainingProgramDao {
 	}
 
 	@Override
-	public int updateTrainingProgram(TrainingProgram training) throws TrainingProgramNotFoundException {
+	public TrainingProgram updateTrainingProgram(TrainingProgram training) throws TrainingProgramNotFoundException {
 		Connection conn = null;
 		try {
 			conn = JdbcUtil.getConnection();
-			PreparedStatement stmt = conn.prepareStatement(updateTrainingProgram);
-			stmt.setInt(1, training.getCourseCode());
-			stmt.setInt(2, training.getFacultyCode());
-			stmt.setDate(3, (Date) training.getStartDate());
-			stmt.setDate(4, (Date) training.getEndDate());
-			
-			stmt.executeUpdate();
-			ResultSet rs = conn.createStatement().executeQuery(fetchTrainingProgramByTrainingCode);
-			if(rs.next()) 
-				return rs.getInt(1);
-			else
-				return 0;
+			PreparedStatement stmt1 = conn.prepareStatement(fetchTrainingProgramByTrainingCode);
+			stmt1.setInt(1, training.getTrainingCode());
+			ResultSet result = stmt1.executeQuery();
+
+			if(!result.next())
+			{
+				throw new TrainingProgramNotFoundException("training details can not be updated.. training id not found.");
+
+			}
+			else {
+
+				PreparedStatement stmt = conn.prepareStatement(updateTrainingProgram);
+				stmt.setInt(1, training.getCourseCode());
+				stmt.setInt(2, training.getFacultyCode());
+				stmt.setDate(3, (Date) training.getStartDate());
+				stmt.setDate(4, (Date) training.getEndDate());
+				stmt.setInt(5, training.getTrainingCode());
+				stmt.executeUpdate();
+				//stmt.execute();
+
+			}
+			return training;
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new TrainingProgramNotFoundException("Failure to update new course");

@@ -13,12 +13,19 @@ import com.cg.exception.TrainingProgramNotFoundException;
 public interface CoordinatorService {
 	
 	String validateDate = "^([0-2][0-9]|(3)[0-1])(\\/)(((0)[0-9])|((1)[0-2]))(\\/)\\d{4}$";
+	String facultyIdRule = "[0-9]{1,}";
+	String trainingIdRule = "[0-9]{1,}";
+	String courseIdRule = "[0-9]{1,}";
+	
+	
+	
+	
 	
 	List<TrainingProgram> fetchAllTrainingProgram() throws TrainingProgramNotFoundException;
 	
 	TrainingProgram fetchTrainingProgramByTrainingCode(int code) throws TrainingProgramNotFoundException;
 	
-	int updateTrainingProgram(TrainingProgram training) throws TrainingProgramNotFoundException;
+	TrainingProgram updateTrainingProgram(TrainingProgram training) throws TrainingProgramNotFoundException;
 	
 	boolean removeTrainingProgram(int code) throws TrainingProgramNotFoundException;
 	
@@ -44,4 +51,9 @@ public interface CoordinatorService {
 	
 	boolean validateDate(String date);
 
+	boolean validateFacultyId(String facultyid);
+
+	boolean validateTrainingId(String trainingId);
+	
+	boolean validateCourseId(String courseId);
 }

@@ -86,7 +86,78 @@ public class CoOrdinatorCli {
 
 
 	private static void updateTrainingProgram() {
+		CoordinatorService service = new CoordinatorServiceImpl();
+		String trainingCode, courseCode, facultyCode, startDate, endDate;
+		TrainingProgram tp = new TrainingProgram();
+
+
+		do {
+		System.out.println("Enter training code: ");
+		trainingCode = console.next();
+		} while(!service.validateTrainingId(trainingCode));
+		tp.setTrainingCode(Integer.parseInt(trainingCode));
+
+		 System.out.println("training");
+
 		
+		do {
+		System.out.println("Enter Course Code: ");
+		courseCode = console.next();
+		} while(!service.validateCourseId(courseCode));
+		tp.setCourseCode(Integer.parseInt(courseCode));
+		 System.out.println("course");
+
+		
+		do {
+		System.out.println("Enter Faculty Code: ");
+		facultyCode = console.next();
+		} while(!service.validateFacultyId(facultyCode));
+		tp.setFacultyCode(Integer.parseInt(facultyCode));
+		 System.out.println("faculty");
+
+		
+		do{
+			System.out.println("Enter Start Date in dd/mm/yyyy format");
+			startDate = console.next();
+		} while (!service.validateDate(startDate));
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		java.util.Date sdate;
+		try {
+			sdate = sdf.parse(startDate);
+			System.out.println(sdate);
+			Date sDate = new Date(sdate.getTime());
+			tp.setStartDate(sDate);
+			System.out.println(sDate);
+		} catch (ParseException e1) {
+			System.out.println("Invalid Date Format");
+			e1.printStackTrace();
+		}
+		
+		
+		do {
+		System.out.println("Enter End Date in dd/mm/yyyy format");
+		endDate = console.next();
+		} while (!service.validateDate(endDate));
+		
+		try {
+			java.util.Date edate = sdf.parse(endDate);
+			Date eDate = new Date(edate.getTime());
+			tp.setEndDate(eDate);
+		} catch (ParseException e1) {
+			System.out.println("Invalid Date Format");
+		}
+		
+		 System.out.println("before call");
+		
+		try {
+			System.out.println("in call");
+
+		TrainingProgram t = service.updateTrainingProgram(tp);
+		System.out.println("Training program details are updated with Training id: " + trainingCode);
+		} catch (TrainingProgramNotFoundException e) {
+			System.out.println("Training Program Does Not Exists");
+		} 
 	}
 
 	private static void showTrainingProgramById() {
