@@ -68,9 +68,17 @@ public class CoOrdinatorCli {
 	}
 
 	private static void removeTrainingProgram() {
-		// TODO Auto-generated method stub
-
-	}
+		int code = 0;
+		System.out.println("Enter Course Code: ");
+		code = console.nextInt();
+		try {
+			service.removeTrainingProgram(code);
+			System.out.println("Training Program Removed Successfully");
+		} catch (TrainingProgramNotFoundException e) {
+			System.out.println("Training Code Not Found !!");
+		}
+		
+	}	
 
 	private static void updateTrainingProgram() {
 		// TODO Auto-generated method stub
