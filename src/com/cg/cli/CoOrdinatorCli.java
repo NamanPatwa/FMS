@@ -68,13 +68,20 @@ public class CoOrdinatorCli {
 	}
 
 	private static void removeTrainingProgram() {
-		// TODO Auto-generated method stub
-
+int code=0;
+System.out.println("Enter Training Id:");
+code=console.nextInt();
+try {
+	boolean result=service.removeTrainingProgram(code);
+	System.out.println(result);
+}catch(TrainingProgramNotFoundException e) {
+	System.out.println("Training Program Not Found with given id");
+	e.printStackTrace();
+}
 	}
 
 	private static void updateTrainingProgram() {
-		// TODO Auto-generated method stub
-
+		
 	}
 
 	private static void showTrainingProgramById() {
@@ -106,12 +113,11 @@ public class CoOrdinatorCli {
 	}
 
 	private static void addTrainingProgram() {
-		// TODO Auto-generated method stub
-
+		
 	}
 
 	private static void addParticipant() {
-		// TODO Auto-generated method stub
+		
 
 	}
 
