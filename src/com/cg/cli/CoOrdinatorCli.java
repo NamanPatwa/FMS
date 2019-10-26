@@ -16,21 +16,11 @@ import com.cg.service.CoordinatorServiceImpl;
 public class CoOrdinatorCli {
 	private static CoordinatorService service;
 	private static Scanner console;
-
+	
+	
 	void coordinatorView(EmployeeMaster employee) {
 		System.out.println("Co-Ordinator -- Welcome");
 		System.out.println(employee);
-	}
-
-	static {
-		console = new Scanner(System.in);
-	}
-
-	public CoOrdinatorCli() {
-		service = new CoordinatorServiceImpl();
-	}
-
-	public static void main(String[] args) {
 		int option = 0;
 
 		while (true) {
@@ -69,6 +59,10 @@ public class CoOrdinatorCli {
 				System.out.println("Please enter correct option");
 			}
 		}
+	}
+
+	static {
+		console = new Scanner(System.in);
 	}
 
 	private static void removeTrainingProgram() {
