@@ -4,6 +4,15 @@ public class Participant {
 	private int trainingcode;
 	private int participantId;
 	
+	public Participant() {
+	}
+	
+	public Participant(int trainingcode, int participantId) {
+		super();
+		this.trainingcode = trainingcode;
+		this.participantId = participantId;
+	}
+
 	public int getTrainingcode() {
 		return trainingcode;
 	}

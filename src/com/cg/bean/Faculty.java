@@ -6,6 +6,16 @@ public class Faculty {
 	private int facultyId;
 	private String skillSet;
 	
+	public Faculty() {
+	}
+	
+	public Faculty(int facultyId, String skillSet) {
+		super();
+		this.facultyId = facultyId;
+		this.skillSet = skillSet;
+	}
+
+
 	public int getFacultyId() {
 		return facultyId;
 	}

@@ -5,6 +5,16 @@ public class CourseMaster {
 	private String courseName;
 	private int days;
 	
+	public CourseMaster() {
+	}
+	
+	public CourseMaster(int courseId, String courseName, int days) {
+		super();
+		this.courseId = courseId;
+		this.courseName = courseName;
+		this.days = days;
+	}
+
 	public int getCourseId() {
 		return courseId;
 	}

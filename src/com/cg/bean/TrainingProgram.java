@@ -1,6 +1,6 @@
 package com.cg.bean;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class TrainingProgram {
 	private int trainingCode;
@@ -9,6 +9,19 @@ public class TrainingProgram {
 	private Date startDate;
 	private Date endDate;
 	
+	public TrainingProgram() {
+	}
+	
+	public TrainingProgram(int trainingCode, int courseCode, int facultyCode, Date startDate, Date endDate) {
+		super();
+		this.trainingCode = trainingCode;
+		this.courseCode = courseCode;
+		this.facultyCode = facultyCode;
+		this.startDate = startDate;
+		this.endDate = endDate;
+	}
+
+
 	public int getTrainingCode() {
 		return trainingCode;
 	}
