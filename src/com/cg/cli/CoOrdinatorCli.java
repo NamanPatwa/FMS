@@ -68,19 +68,7 @@ public class CoOrdinatorCli {
 	}
 
 	private static void removeTrainingProgram() {
-<<<<<<< HEAD
-int code=0;
-System.out.println("Enter Training Id:");
-code=console.nextInt();
-try {
-	boolean result=service.removeTrainingProgram(code);
-	System.out.println(result);
-}catch(TrainingProgramNotFoundException e) {
-	System.out.println("Training Program Not Found with given id");
-	e.printStackTrace();
-}
-	}
-=======
+
 		int code = 0;
 		System.out.println("Enter Course Code: ");
 		code = console.nextInt();
@@ -92,7 +80,7 @@ try {
 		}
 		
 	}	
->>>>>>> branch 'master' of https://github.com/NamanPatwa/FMS.git
+
 
 	private static void updateTrainingProgram() {
 		
