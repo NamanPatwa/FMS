@@ -1,8 +1,10 @@
 package com.cg.cli;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 import com.cg.bean.EmployeeMaster;
+import com.cg.exception.TrainingProgramNotFoundException;
 import com.cg.service.AuthenticatorService;
 import com.cg.service.AuthenticatorServiceImpl;
 
@@ -19,7 +21,7 @@ public class AuthenticatorCli {
 		service = new AuthenticatorServiceImpl();
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException, TrainingProgramNotFoundException, SQLException {
 		int option = 0;
 
 		while (true) {
@@ -38,7 +40,7 @@ public class AuthenticatorCli {
 	}
 	
 	
-	private static void login() {
+	private static void login() throws InterruptedException, TrainingProgramNotFoundException, SQLException {
 		AuthenticatorService service = new AuthenticatorServiceImpl();
 		int employeeId;
 		String password;
