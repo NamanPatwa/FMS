@@ -6,7 +6,7 @@ import com.cg.exception.FacultyDoesNotExist;
 public interface FacultyService {
 
 	String idRule = "[0-9]{1,}";
-	String skillsetRule = "[A-Z][a-z]{1,}";
+	String skillsetRule = "[A-Za-z]{1,}";
 	
 	default boolean validateFacultyId(String facultyId) {
 		return facultyId.matches(idRule);

@@ -102,12 +102,45 @@ public class ParticipantDaoImpl implements ParticipantDao {
 
 	@Override
 	public boolean deleteParticipantByTrainingCode(int trainingCode) {
+		Connection conn = null;
+		try {
+			conn = JdbcUtil.getConnection();
+			PreparedStatement stmt = conn.prepareStatement(deleteParticipantByTrainingCodeQuery);
+			stmt.setInt(1, trainingCode);
+			stmt.executeUpdate();
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(conn != null)
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 		return false;
 	}
 
 	@Override
 	public boolean deleteParticipantByParticipantId(int participantCode) {
-		// TODO Auto-generated method stub
+		Connection conn = null;
+		try {
+			conn = JdbcUtil.getConnection();
+			PreparedStatement stmt = conn.prepareStatement(deleteParticipantByParticipantIdQuery);
+			stmt.setInt(1, participantCode);
+			stmt.executeUpdate();
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(conn != null)
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 		return false;
 	}
 
@@ -147,7 +180,6 @@ public class ParticipantDaoImpl implements ParticipantDao {
 	@Override
 	public boolean checkIfEnrolled(int trainingCode, int participantCode) throws ParticipantNotFoundException {
 		Connection conn = null;
-		Participant participant = null;
 		
 		try {
 			conn = JdbcUtil.getConnection();
