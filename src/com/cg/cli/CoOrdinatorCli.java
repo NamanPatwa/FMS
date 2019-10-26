@@ -4,9 +4,11 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.cg.bean.EmployeeMaster;
+import com.cg.bean.Participant;
 import com.cg.bean.TrainingProgram;
 import com.cg.exception.FacultyDoesNotExist;
 import com.cg.exception.InvalidCourseException;
+import com.cg.exception.ParticipantNotFoundException;
 import com.cg.exception.TrainingProgramNotFoundException;
 import com.cg.service.CoordinatorService;
 import com.cg.service.CoordinatorServiceImpl;
@@ -148,6 +150,19 @@ public class CoOrdinatorCli {
 	}
 
 	private static void addParticipant() {
+		Participant participant = new Participant();
+		
+		System.out.println("Enter Training Code");
+		participant.setTrainingcode(console.nextInt());
+		
+		System.out.println("Enter Participant ID");
+		participant.setParticipantId(console.nextInt());
+		
+		try {
+			service.addParticipant(participant);
+		} catch (ParticipantNotFoundException e) {
+			System.out.println("Participant Does Not Exist Or Already ENrolled");
+		}
 		
 	}
 }
