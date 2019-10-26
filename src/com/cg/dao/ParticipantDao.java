@@ -14,7 +14,7 @@ public interface ParticipantDao {
 	String deleteParticipantByTrainingCodeQuery = "DELETE * FROM TRAINING_PARTICIPANT_MASTER WHERE TRANING_CODE=?";
 	String deleteParticipantByParticipantIdQuery = "DELETE * FROM TRAINING_PARTICIPANT_MASTER WHERE PARTICIPANT_ID =?";
 	String findTrainingByParticipant = "select * from Training_participant_master where Participant_id=?";
-	String checkIfEnrolledQuery = "select * from training_participant_master where training_code = ? and participant_id = ?";
+	String checkIfEnrolledQuery = "select * from training_participant_master where TRANING_CODE = ? and participant_id = ?";
 	
 	int addParticipant(Participant participant) throws ParticipantNotFoundException;
 	Participant findParticipantByTrainingCode(int trainingCode) throws ParticipantNotFoundException;

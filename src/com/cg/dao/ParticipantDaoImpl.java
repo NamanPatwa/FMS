@@ -180,18 +180,23 @@ public class ParticipantDaoImpl implements ParticipantDao {
 	@Override
 	public boolean checkIfEnrolled(int trainingCode, int participantCode) throws ParticipantNotFoundException {
 		Connection conn = null;
-		
+		System.out.println("bahar");
 		try {
 			conn = JdbcUtil.getConnection();
-			PreparedStatement stmt = conn.prepareStatement(findParticipantByParticipantIdQuery);
+			PreparedStatement stmt = conn.prepareStatement(checkIfEnrolledQuery);
+			System.out.println("before");
 			stmt.setInt(1, trainingCode);
 			stmt.setInt(2, participantCode);
-			
 			ResultSet result = stmt.executeQuery();
+			System.out.println("after");
+
 			if(result.next()) {
+				System.out.println("enrolled");
 				return true;
-			} else 
+			} else {
+				System.out.println("not enrolled");
 				return false;
+				}
 		} catch (SQLException e) {
 			throw new ParticipantNotFoundException(e.getMessage());
 		}finally {

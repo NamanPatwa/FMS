@@ -51,13 +51,17 @@ public class AuthenticatorCli {
 		password = console.next();
 		
 		EmployeeMaster employee = service.authenticateUser(employeeId, password);
-		
+		if(employee != null) {
 		switch (employee.getRole()) {
 		case "Participant": new ParticipantCli().participantView(employee);
 			break;
 		case "Admin": new AdminCli().AdminView(employee);
 			break;
 		case "Co-Ordinator": new CoOrdinatorCli().coordinatorView(employee);
+		}
+		}
+		else {
+			System.out.println("Invalid Credentiails");
 		}
 	}
 

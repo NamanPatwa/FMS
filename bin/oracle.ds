@@ -1,5 +1,11 @@
 driver=oracle.jdbc.OracleDriver
+<<<<<<< HEAD
 url=jdbc:oracle:thin:@localhost:1521:xe
 
 user=premchandra
 pass=oracle
+=======
+url=jdbc:oracle:thin:@localhost:1521:xe
+user=bhushan
+pass=ORACLE
+>>>>>>> branch 'master' of https://github.com/NamanPatwa/FMS.git

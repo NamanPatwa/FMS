@@ -60,4 +60,31 @@ public class FacultyDaoImpl implements FacultyDao {
 
 	}
 
+	@Override
+	public boolean isFaculty(int id) throws FacultyDoesNotExist {
+		
+Connection conn = null;
+		
+		try {
+			conn = JdbcUtil.getConnection();
+			
+			PreparedStatement stmt2 = conn.prepareStatement(fetchPreviousSkillsetQuery);
+			stmt2.setInt(1, id);
+			ResultSet rs = stmt2.executeQuery();
+			if(rs.next()) {
+				return true;
+			} else
+				return false;
+		} catch (SQLException e) {
+			throw new FacultyDoesNotExist(e.getMessage());
+		} finally {
+			if(conn != null)
+			try {
+					conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
 }

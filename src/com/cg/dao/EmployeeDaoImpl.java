@@ -49,9 +49,14 @@ public class EmployeeDaoImpl implements EmployeeDao {
 			stmt.setInt(1, employeeId);
 			ResultSet rs = stmt.executeQuery();
 			
-			if(rs.next())
+			if(rs.next()) {
+				System.out.println("check true");
 				return true;
+				}
+			else {
+				System.out.println("check false");
 			return false;
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new ParticipantNotFoundException("Participant with given ID does not exist");
