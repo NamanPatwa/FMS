@@ -26,4 +26,5 @@ public interface CourseMasterDao {
 	
 	boolean removeCourse(int id) throws InvalidCourseException;
 	
+	boolean courseExist(int id) throws InvalidCourseException;
 }

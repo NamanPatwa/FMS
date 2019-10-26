@@ -21,6 +21,7 @@ public class TrainingProgramDaoImpl implements TrainingProgramDao {
 			conn = JdbcUtil.getConnection();
 			System.out.println("before adds");
 			PreparedStatement stmt = conn.prepareStatement(addTrainingProgram);
+			
 			stmt.setInt(1, training.getCourseCode());
 			stmt.setInt(2, training.getFacultyCode());
 			stmt.setDate(3, (Date) training.getStartDate());
@@ -62,10 +63,11 @@ public class TrainingProgramDaoImpl implements TrainingProgramDao {
 		ResultSet result = stmt.executeQuery();
 		while(result.next()) {
 			TrainingProgram program = new TrainingProgram();
-			program.setCourseCode(result.getInt(1));
-			program.setFacultyCode(result.getInt(2));
-			program.setStartDate(result.getDate(3));
-			program.setEndDate(result.getDate(4));
+			program.setTrainingCode(result.getInt(1));
+			program.setCourseCode(result.getInt(2));
+			program.setFacultyCode(result.getInt(3));
+			program.setStartDate(result.getDate(4));
+			program.setEndDate(result.getDate(5));
 			programs.add(program);
 		}
 		if(programs.size() == 0)
@@ -97,10 +99,11 @@ public class TrainingProgramDaoImpl implements TrainingProgramDao {
 			ResultSet result = stmt.executeQuery();
 			if(result.next()) {
 				program = new TrainingProgram();
-				program.setCourseCode(result.getInt(1));
-				program.setFacultyCode(result.getInt(1));
-				program.setStartDate(result.getDate(2));
-				program.setEndDate(result.getDate(3));
+				program.setTrainingCode(result.getInt(1));
+				program.setCourseCode(result.getInt(2));
+				program.setFacultyCode(result.getInt(3));
+				program.setStartDate(result.getDate(4));
+				program.setEndDate(result.getDate(5));
 			} else
 				throw new TrainingProgramNotFoundException("Training Program does not exist..");
 			return program;

@@ -1,5 +1,8 @@
 package com.cg.cli;
 
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Scanner;
 
@@ -17,7 +20,9 @@ public class CoOrdinatorCli {
 	private static CoordinatorService service;
 	private static Scanner console;
 	
-	
+	public CoOrdinatorCli() {
+		service = new CoordinatorServiceImpl();
+	}
 	void coordinatorView(EmployeeMaster employee) {
 		System.out.println("Co-Ordinator -- Welcome");
 		System.out.println(employee);
@@ -127,13 +132,36 @@ public class CoOrdinatorCli {
 			startDate = console.next();
 		} while (!service.validateDate(startDate));
 		
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		java.util.Date sdate;
+		try {
+			sdate = sdf.parse(startDate);
+			System.out.println(sdate);
+			Date sDate = new Date(sdate.getTime());
+			tp.setStartDate(sDate);
+			System.out.println(sDate);
+		} catch (ParseException e1) {
+			System.out.println("Invalid Date Format");
+			e1.printStackTrace();
+		}
+		
+		
 		do {
 		System.out.println("Enter End Date");
 		endDate = console.next();
 		} while (!service.validateDate(endDate));
 		
 		try {
+			java.util.Date edate = sdf.parse(endDate);
+			Date eDate = new Date(edate.getTime());
+			tp.setEndDate(eDate);
+		} catch (ParseException e1) {
+			System.out.println("Invalid Date Format");
+		}
+		
+		try {
 			service.addTrainingProgram(tp);
+			System.out.println("Training Added Successfully");
 		} catch (TrainingProgramNotFoundException e) {
 			System.out.println("Training Program Does Not Exists");
 		} catch (FacultyDoesNotExist e) {
@@ -151,7 +179,7 @@ public class CoOrdinatorCli {
 		
 		System.out.println("Enter Participant ID");
 		participant.setParticipantId(console.nextInt());
-		
+		System.out.println(participant);
 		try {
 			service.addParticipant(participant);
 		} catch (ParticipantNotFoundException e) {

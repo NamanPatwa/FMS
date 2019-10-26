@@ -80,22 +80,27 @@ public class CourseMasterDaoImpl implements CourseMasterDao {
 	public CourseMaster fetchCourseByCourseId(int id) throws InvalidCourseException {
 		Connection conn = null;
 		CourseMaster course = null;
-		
+		System.out.println("pehle");
+
 		try {
 			conn = JdbcUtil.getConnection();
 			PreparedStatement stmt = conn.prepareStatement(getCourseQuery);
 			stmt.setInt(1, id);
-			
+			System.out.println("before get course");
 			ResultSet result = stmt.executeQuery();
+			System.out.println("after");
 			if(result.next()) {
 				course = new CourseMaster();
 				course.setCourseId(result.getInt(1));
 				course.setCourseName(result.getString(2));
 				course.setDays(result.getInt(3));
+				System.out.println("he");
+
 			} else
 				throw new InvalidCourseException("Course does not exist..");
 			return course;
 		} catch (SQLException e) {
+			
 			throw new InvalidCourseException(e.getMessage());
 		} finally {
 			try {
@@ -150,6 +155,36 @@ public class CourseMasterDaoImpl implements CourseMasterDao {
 			stmt.setInt(1, id);
 			stmt.executeUpdate();
 			return true;
+		} catch (SQLException e) {
+			throw new InvalidCourseException(e.getMessage());
+		} finally {
+			try {
+				if(conn != null)
+					conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	@Override
+	public boolean courseExist(int id) throws InvalidCourseException {
+		Connection conn = null;
+		CourseMaster course = null;
+		System.out.println("pehle");
+
+		try {
+			conn = JdbcUtil.getConnection();
+			PreparedStatement stmt = conn.prepareStatement(getCourseQuery);
+			stmt.setInt(1, id);
+			System.out.println("before get course");
+			ResultSet result = stmt.executeQuery();
+			System.out.println("after");
+			if(result.next()) {
+				return true;
+
+			} else
+				return false;
 		} catch (SQLException e) {
 			throw new InvalidCourseException(e.getMessage());
 		} finally {

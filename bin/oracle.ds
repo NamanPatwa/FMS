@@ -1,14 +1,4 @@
 driver=oracle.jdbc.OracleDriver
 url=jdbc:oracle:thin:@localhost:1521:xe
-<<<<<<< HEAD
 user=naman
 pass=ORACLE
-=======
-<<<<<<< HEAD
-user=ISHA
-pass=ORACLE
-=======
-user=jyoti
-pass=oracle
->>>>>>> branch 'master' of https://github.com/NamanPatwa/FMS.git
->>>>>>> branch 'master' of https://github.com/NamanPatwa/FMS.git

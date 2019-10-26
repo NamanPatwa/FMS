@@ -12,4 +12,5 @@ public interface FacultyDao {
 	
 	int addFacultySkill(Faculty faculty) throws FacultyDoesNotExist;
 
+	boolean isFaculty(int id) throws FacultyDoesNotExist;
 }
