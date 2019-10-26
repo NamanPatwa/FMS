@@ -94,4 +94,12 @@ public class CoordinatorServiceImpl implements CoordinatorService {
 		return null;
 	}
 
+	@Override
+	public boolean validateDate(String date) {
+		boolean val =  date.matches(validateDate);
+		if(val == false)
+			System.out.println("Invalid Date");
+		return val;
+	}
+
 }

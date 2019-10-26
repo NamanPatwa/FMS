@@ -12,6 +12,8 @@ import com.cg.exception.TrainingProgramNotFoundException;
 
 public interface CoordinatorService {
 	
+	String validateDate = "^([0-2][0-9]|(3)[0-1])(\\/)(((0)[0-9])|((1)[0-2]))(\\/)\\d{4}$";
+	
 	List<TrainingProgram> fetchAllTrainingProgram() throws TrainingProgramNotFoundException;
 	
 	TrainingProgram fetchTrainingProgramByTrainingCode(int code) throws TrainingProgramNotFoundException;
@@ -39,5 +41,7 @@ public interface CoordinatorService {
 	// for service ONLY -->> 
 	// date validation : date should be valid, end date should be greater than start date
 	// current date se jyada dono
+	
+	boolean validateDate(String date);
 
 }

@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 import com.cg.bean.EmployeeMaster;
 import com.cg.bean.TrainingProgram;
+import com.cg.exception.FacultyDoesNotExist;
+import com.cg.exception.InvalidCourseException;
 import com.cg.exception.TrainingProgramNotFoundException;
 import com.cg.service.CoordinatorService;
 import com.cg.service.CoordinatorServiceImpl;
@@ -115,12 +117,37 @@ public class CoOrdinatorCli {
 	}
 
 	private static void addTrainingProgram() {
+		String startDate, endDate;
+		TrainingProgram tp = new TrainingProgram();
+		System.out.println("Enter Training Code:");
+		tp.setTrainingCode(console.nextInt());
+		System.out.println("Enter Course Code");
+		tp.setCourseCode(console.nextInt());
+		System.out.println("Enter Faculty Code :");
+		tp.setFacultyCode(console.nextInt());
 		
+		do{
+			System.out.println("Enter Start Date");
+			startDate = console.next();
+		} while (!service.validateDate(startDate));
+		
+		do {
+		System.out.println("Enter End Date");
+		endDate = console.next();
+		} while (!service.validateDate(endDate));
+		
+		try {
+			service.addTrainingProgram(tp);
+		} catch (TrainingProgramNotFoundException e) {
+			System.out.println("Training Program Does Not Exists");
+		} catch (FacultyDoesNotExist e) {
+			System.out.println("Faculty Does Not Exist");
+		} catch (InvalidCourseException e) {
+			System.out.println("Invalid Course Code");
+		}
 	}
 
 	private static void addParticipant() {
 		
-
 	}
-
 }
