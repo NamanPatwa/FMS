@@ -1,6 +1,7 @@
 package com.cg.dao;
 
 
+import java.sql.Date;
 import java.util.List;
 
 import com.cg.bean.TrainingProgram;
@@ -13,7 +14,8 @@ public interface TrainingProgramDao {
 	String removeTrainingProgram = "DELETE from TRAINING_MASTER where TRAINING_CODE=?";
 	String addTrainingProgram = "INSERT INTO TRAINING_MASTER VALUES (trainingcode_seq.nextval, ?, ?, ?, ?)";
 	String getTrainingCode = "SELECT trainingcode_seq.currval FROM DUAL";
-    
+	String getTrainingDate = "SELECT start_date FROM TRAINING_MASTER WHERE TRAINING_CODE = ?";
+	
 	List<TrainingProgram> fetchAllTrainingProgram() throws TrainingProgramNotFoundException;
 	
 	TrainingProgram fetchTrainingProgramByTrainingCode(int code) throws TrainingProgramNotFoundException;
@@ -24,4 +26,5 @@ public interface TrainingProgramDao {
 
 	int addTraining(TrainingProgram training) throws TrainingProgramNotFoundException;
 	
+	Date getTrainingDate(int trainingCode);
 }

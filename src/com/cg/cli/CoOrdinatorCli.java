@@ -1,13 +1,20 @@
 package com.cg.cli;
 
+import java.util.List;
 import java.util.Scanner;
 
 import com.cg.bean.EmployeeMaster;
+import com.cg.bean.Participant;
+import com.cg.bean.TrainingProgram;
+import com.cg.exception.FacultyDoesNotExist;
+import com.cg.exception.InvalidCourseException;
+import com.cg.exception.ParticipantNotFoundException;
+import com.cg.exception.TrainingProgramNotFoundException;
 import com.cg.service.CoordinatorService;
 import com.cg.service.CoordinatorServiceImpl;
 
 public class CoOrdinatorCli {
-	private CoordinatorService service;
+	private static CoordinatorService service;
 	private static Scanner console;
 
 	void coordinatorView(EmployeeMaster employee) {
@@ -31,11 +38,11 @@ public class CoOrdinatorCli {
 			System.out.println("1 - Add Participant");
 			System.out.println("2 - Add Training Program");
 			System.out.println("3 - Show All Training Program");
-			System.out.println("4 - Show Training Program by ID");
+			System.out.println("4 - Show Training Program by Training Code");
 			System.out.println("5 - Update Training Program");
 			System.out.println("6 - Remove Training Program");
 			System.out.println("7 - Exit");
-			
+
 			option = console.nextInt();
 			switch (option) {
 			case 1:
@@ -65,33 +72,97 @@ public class CoOrdinatorCli {
 	}
 
 	private static void removeTrainingProgram() {
-		// TODO Auto-generated method stub
+
+		int code = 0;
+		System.out.println("Enter Course Code: ");
+		code = console.nextInt();
+		try {
+			service.removeTrainingProgram(code);
+			System.out.println("Training Program Removed Successfully");
+		} catch (TrainingProgramNotFoundException e) {
+			System.out.println("Training Code Not Found !!");
+		}
 		
-	}
+	}	
+
 
 	private static void updateTrainingProgram() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	private static void showTrainingProgramById() {
-		// TODO Auto-generated method stub
-		
+		int code = 0;
+		System.out.println("Enter Training Id: ");
+		code = console.nextInt();
+		try {
+			TrainingProgram result = service.fetchTrainingProgramByTrainingCode(code);
+			System.out.println(result.toString());
+		} catch (TrainingProgramNotFoundException e) {
+			System.out.println("Training Program is not Found");
+			e.printStackTrace();
+		}
+
 	}
 
 	private static void showAllTrainingProgram() {
-		// TODO Auto-generated method stub
-		
+
+		try {
+			List<TrainingProgram> result = service.fetchAllTrainingProgram();
+			for (TrainingProgram t : result) {
+				System.out.println(t.toString());
+			}
+		} catch (TrainingProgramNotFoundException e) {
+			System.out.println("No Training Program exists for the moment..Sorry!");
+			e.printStackTrace();
+		}
+
 	}
 
 	private static void addTrainingProgram() {
-		// TODO Auto-generated method stub
+		String startDate, endDate;
+		TrainingProgram tp = new TrainingProgram();
+		System.out.println("Enter Training Code:");
+		tp.setTrainingCode(console.nextInt());
+		System.out.println("Enter Course Code");
+		tp.setCourseCode(console.nextInt());
+		System.out.println("Enter Faculty Code :");
+		tp.setFacultyCode(console.nextInt());
 		
+		do{
+			System.out.println("Enter Start Date");
+			startDate = console.next();
+		} while (!service.validateDate(startDate));
+		
+		do {
+		System.out.println("Enter End Date");
+		endDate = console.next();
+		} while (!service.validateDate(endDate));
+		
+		try {
+			service.addTrainingProgram(tp);
+		} catch (TrainingProgramNotFoundException e) {
+			System.out.println("Training Program Does Not Exists");
+		} catch (FacultyDoesNotExist e) {
+			System.out.println("Faculty Does Not Exist");
+		} catch (InvalidCourseException e) {
+			System.out.println("Invalid Course Code");
+		}
 	}
 
 	private static void addParticipant() {
-		// TODO Auto-generated method stub
+		Participant participant = new Participant();
+		
+		System.out.println("Enter Training Code");
+		participant.setTrainingcode(console.nextInt());
+		
+		System.out.println("Enter Participant ID");
+		participant.setParticipantId(console.nextInt());
+		
+		try {
+			service.addParticipant(participant);
+		} catch (ParticipantNotFoundException e) {
+			System.out.println("Participant Does Not Exist Or Already ENrolled");
+		}
 		
 	}
-
 }
