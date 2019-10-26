@@ -2,8 +2,10 @@ package com.cg.service;
 
 import java.util.List;
 
+import com.cg.bean.Participant;
 import com.cg.bean.TrainingProgram;
 import com.cg.dao.ParticipantDao;
+import com.cg.exception.ParticipantNotFoundException;
 import com.cg.exception.TrainingProgramNotFoundException;
 
 public interface CoordinatorService {
@@ -12,11 +14,11 @@ public interface CoordinatorService {
 	
 	TrainingProgram fetchTrainingProgramByTrainingCode(int code) throws TrainingProgramNotFoundException;
 	
-	TrainingProgram updateTrainingProgram(TrainingProgram training);
+	int updateTrainingProgram(TrainingProgram training) throws TrainingProgramNotFoundException;
 	
 	boolean removeTrainingProgram(int code) throws TrainingProgramNotFoundException;
 	
-	ParticipantDao addParticipant(ParticipantDao participant);
+	Participant addParticipant(Participant participant) throws ParticipantNotFoundException;
 	// check whether available & check role in employee master
 	// query : select * from employee_master where employee_id = ? and role = ?
 	// for given training code not already enrolled
