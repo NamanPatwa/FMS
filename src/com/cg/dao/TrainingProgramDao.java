@@ -8,7 +8,7 @@ import com.cg.exception.TrainingProgramNotFoundException;
 
 public interface TrainingProgramDao {
 	String fetchAllTrainingProgram = "SELECT * from TRAINING_MASTER ";
-	String fetchTrainingProgramByTrainingCode = "SELECT * from TRAINING_MASTER " + "where= TRAINING_CODE=?";
+	String fetchTrainingProgramByTrainingCode = "SELECT * from TRAINING_MASTER where TRAINING_CODE=?";
 	String updateTrainingProgram = "UPDATE TRAINING_MASTER SET FACULTY_CODE=?, COURSE_CODE=?, START_DATE = ?, END_DATE = where TRAINING_CODE=?";
 	String removeTrainingProgram = "DELETE from TRAINING_MASTER where TRAINING_CODE=?";
 	String addTrainingProgram = "INSERT INTO TRAINING_MASTER VALUES (trainingcode_seq.nextval, ?, ?, ?, ?)";

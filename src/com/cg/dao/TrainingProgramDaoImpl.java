@@ -19,14 +19,20 @@ public class TrainingProgramDaoImpl implements TrainingProgramDao {
 		
 		try {
 			conn = JdbcUtil.getConnection();
+			System.out.println("before adds");
 			PreparedStatement stmt = conn.prepareStatement(addTrainingProgram);
 			stmt.setInt(1, training.getCourseCode());
 			stmt.setInt(2, training.getFacultyCode());
 			stmt.setDate(3, (Date) training.getStartDate());
 			stmt.setDate(4, (Date) training.getEndDate());
-			
 			stmt.executeUpdate();
-			ResultSet rs = conn.createStatement().executeQuery(fetchTrainingProgramByTrainingCode);
+			System.out.println("mid adds");
+
+			PreparedStatement stmt2 = conn.prepareStatement(fetchTrainingProgramByTrainingCode);
+			stmt2.setInt(1, training.getTrainingCode());
+			ResultSet rs = stmt2.executeQuery();
+			System.out.println("after adds");
+
 			if(rs.next()) 
 				return rs.getInt(1);
 			else

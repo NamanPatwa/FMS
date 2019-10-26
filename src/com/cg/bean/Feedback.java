@@ -8,6 +8,23 @@ public class Feedback {
 	private int timeManagement;
 	private int handout;
 	private int hwSwNwAvailability;
+	
+	public Feedback() {
+	}
+	
+	public Feedback(int trainingCode, int participantId, int presentationAndCommunication, int doubtClarification,
+			int timeManagement, int handout, int hwSwNwAvailability) {
+		super();
+		this.trainingCode = trainingCode;
+		this.participantId = participantId;
+		this.presentationAndCommunication = presentationAndCommunication;
+		this.doubtClarification = doubtClarification;
+		this.timeManagement = timeManagement;
+		this.handout = handout;
+		this.hwSwNwAvailability = hwSwNwAvailability;
+	}
+
+
 	public int getTrainingCode() {
 		return trainingCode;
 	}
