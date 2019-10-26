@@ -164,4 +164,30 @@ public class TrainingProgramDaoImpl implements TrainingProgramDao {
 
 	}
 
+	@Override
+	public Date getTrainingDate(int trainingCode) {
+		Connection conn = null;
+		Date date = null;
+		
+		try {
+			conn = JdbcUtil.getConnection();
+			PreparedStatement stmt = conn.prepareStatement(getTrainingDate);
+			stmt.setInt(1, trainingCode);
+			ResultSet rs = stmt.executeQuery();
+			if(rs.next()) {
+				date = rs.getDate(1);
+				return date;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(conn != null)
+					conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return null;
+	}
 }
