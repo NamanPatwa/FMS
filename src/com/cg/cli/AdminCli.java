@@ -34,7 +34,7 @@ public class AdminCli {
 			switch(option) {
 			case 1: facultySkillMaintenance(); break;
 			case 2: courseMaintenance(); break;
-			case 3: viewFeedbackReport(); break;
+			case 3: new FeedbackReportCli().feedbackReportView(); break;
 			case 4: break;
 			default: System.out.println("Please add valid information..");
 			}
@@ -45,15 +45,6 @@ public class AdminCli {
 	}
 	
 	
-	private void viewFeedbackReport() {
-		System.out.println("view feedback report -- Welcome");
-		
-		int option = 0;
-		
-		
-	}
-
-
 	private void courseMaintenance() {
 		System.out.println("course maintenance -- Welcome");
 		
