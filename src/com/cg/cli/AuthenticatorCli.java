@@ -3,6 +3,8 @@ package com.cg.cli;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+import org.apache.log4j.PropertyConfigurator;
+
 import com.cg.bean.EmployeeMaster;
 import com.cg.exception.TrainingProgramNotFoundException;
 import com.cg.service.AuthenticatorService;
@@ -22,6 +24,8 @@ public class AuthenticatorCli {
 	}
 
 	public static void main(String[] args) throws InterruptedException, TrainingProgramNotFoundException, SQLException {
+		PropertyConfigurator.configure("src/log4j.properties");
+
 		int option = 0;
 
 		while (true) {

@@ -1,0 +1,10 @@
+2019-10-27-main-INFO -com.cg.service.AuthenticatorServiceImpl:-----------------------------------------------------------------------------------------------------
+2019-10-27-main-INFO -com.cg.service.AuthenticatorServiceImpl:<<Adding a new Employee>>
+2019-10-27-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Connection successfully established with the database for adding new employee
+2019-10-27-main-INFO -com.cg.dao.AuthenticatorDaoImpl:New employee added with employee id: 2000
+2019-10-27-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Database connection closed and resources released
+2019-10-27-main-INFO -com.cg.service.AuthenticatorServiceImpl:-----------------------------------------------------------------------------------------------------
+2019-10-27-main-INFO -com.cg.service.AuthenticatorServiceImpl:<<Authenticating Employee>>
+2019-10-27-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Connection successfully established with the database for getting employee information
+2019-10-27-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Employee found with employee id: 2000
+2019-10-27-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Database connection closed and resources released

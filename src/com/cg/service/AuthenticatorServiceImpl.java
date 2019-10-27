@@ -10,12 +10,16 @@ import java.util.Optional;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 
+import org.apache.log4j.Logger;
+
 import com.cg.bean.EmployeeMaster;
 import com.cg.dao.AuthenticatorDao;
 import com.cg.dao.AuthenticatorDaoImpl;
+import com.cg.dao.TrainingProgramDaoImpl;
 
 
 public class AuthenticatorServiceImpl implements AuthenticatorService {
+	static Logger myLogger =  Logger.getLogger(AuthenticatorServiceImpl.class);
 	
 	private static final SecureRandom RAND = new SecureRandom();
 	private static final int ITERATIONS = 65536;
@@ -74,6 +78,8 @@ private static Optional<String> hashPassword (String password, String salt){
 	
 	@Override
 	public EmployeeMaster authenticateUser(int employeeId, String password) {
+		myLogger.info("-----------------------------------------------------------------------------------------------------");
+		myLogger.info("<<Authenticating Employee>>");
 		EmployeeMaster employee = dao.getInfo(employeeId);
 		if (employee == null) {
 			return null;
@@ -90,6 +96,8 @@ private static Optional<String> hashPassword (String password, String salt){
 
 	@Override
 	public boolean addUser(int employeeId, String name, String password, String role) {
+		myLogger.info("-----------------------------------------------------------------------------------------------------");
+		myLogger.info("<<Adding a new Employee>>");
 		String salt = generateSalt(SALT_LENGTH).get();
 		String encryptedPassword = hashPassword(password, salt).get();
 		EmployeeMaster employee = new EmployeeMaster();
