@@ -20,55 +20,115 @@ public class CoOrdinatorCli {
 	private static CoordinatorService service;
 	private static Scanner console;
 	
+	static {
+		console = new Scanner(System.in);
+	}
+	
 	public CoOrdinatorCli() {
 		service = new CoordinatorServiceImpl();
 	}
+	
 	void coordinatorView(EmployeeMaster employee) {
 		System.out.println("Co-Ordinator -- Welcome");
 		System.out.println(employee);
 		int option = 0;
 
+		
+
+		while (true) {
+			System.out.println("Enter Option");
+			System.out.println("1 - Training Program Maintenance");
+			System.out.println("2 - Participant Enrollment");
+			System.out.println("3 - View Feedback Report");
+			System.out.println("4 - Back to home page");
+
+			option = console.nextInt();
+			switch (option) {
+			case 1:
+				trainingProgramMaintenance();
+				break;
+			case 2:
+				participantEnrollment();
+				break;
+			case 3:
+				viewFeedbackReport();
+				break;
+			case 4:
+				break;
+			default:
+				System.out.println("Please enter correct option");
+			}
+			if(option == 4) break;
+		}		
+	}
+
+	private void viewFeedbackReport() {
+		
+	}
+	
+	private void participantEnrollment() {
+		
+		int option = 0;
+		
 		while (true) {
 			System.out.println("Enter Option");
 			System.out.println("1 - Add Participant");
-			System.out.println("2 - Add Training Program");
-			System.out.println("3 - Show All Training Program");
-			System.out.println("4 - Show Training Program by Training Code");
-			System.out.println("5 - Update Training Program");
-			System.out.println("6 - Remove Training Program");
-			System.out.println("7 - Exit");
-
+			System.out.println("2 - Back");
+			
 			option = console.nextInt();
 			switch (option) {
 			case 1:
 				addParticipant();
 				break;
 			case 2:
-				addTrainingProgram();
 				break;
-			case 3:
-				showAllTrainingProgram();
-				break;
-			case 4:
-				showTrainingProgramById();
-				break;
-			case 5:
-				updateTrainingProgram();
-				break;
-			case 6:
-				removeTrainingProgram();
-				break;
-			case 7:
-				System.exit(0);
 			default:
 				System.out.println("Please enter correct option");
 			}
+			if(option == 2) break;
+		}	
+	}
+	
+	private void trainingProgramMaintenance() {
+		
+		int option = 0;
+		
+		while (true) {
+			System.out.println("Enter Option");
+			System.out.println("1 - Add Training Program");
+			System.out.println("2 - Show All Training Program");
+			System.out.println("3 - Show Training Program by Training Code");
+			System.out.println("4 - Update Training Program");
+			System.out.println("5 - Remove Training Program");
+			System.out.println("6 - Back");
+
+			option = console.nextInt();
+			switch (option) {
+			case 1:
+				addTrainingProgram();
+				break;
+			case 2:
+				showAllTrainingProgram();
+				break;
+			case 3:
+				showTrainingProgramById();
+				break;
+			case 4:
+				updateTrainingProgram();
+				break;
+			case 5:
+				removeTrainingProgram();
+				break;
+			case 6:
+				break;
+			default:
+				System.out.println("Please enter correct option");
+			}
+			if(option == 6) break;
 		}
 	}
 
-	static {
-		console = new Scanner(System.in);
-	}
+	
 
 	private static void removeTrainingProgram() {
 
@@ -96,25 +156,18 @@ public class CoOrdinatorCli {
 		trainingCode = console.next();
 		} while(!service.validateTrainingId(trainingCode));
 		tp.setTrainingCode(Integer.parseInt(trainingCode));
-
-		 System.out.println("training");
-
 		
 		do {
 		System.out.println("Enter Course Code: ");
 		courseCode = console.next();
 		} while(!service.validateCourseId(courseCode));
 		tp.setCourseCode(Integer.parseInt(courseCode));
-		 System.out.println("course");
-
 		
 		do {
 		System.out.println("Enter Faculty Code: ");
 		facultyCode = console.next();
 		} while(!service.validateFacultyId(facultyCode));
 		tp.setFacultyCode(Integer.parseInt(facultyCode));
-		 System.out.println("faculty");
-
 		
 		do{
 			System.out.println("Enter Start Date in dd/mm/yyyy format");
@@ -147,12 +200,8 @@ public class CoOrdinatorCli {
 		} catch (ParseException e1) {
 			System.out.println("Invalid Date Format");
 		}
-		
-		 System.out.println("before call");
-		
+				
 		try {
-			System.out.println("in call");
-
 		TrainingProgram t = service.updateTrainingProgram(tp);
 		System.out.println("Training program details are updated with Training id: " + trainingCode);
 		} catch (TrainingProgramNotFoundException e) {
