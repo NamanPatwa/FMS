@@ -7,6 +7,18 @@ public class EmployeeMaster {
 	private String role;
 	private String userSalt;
 	
+	public EmployeeMaster() {
+	}
+	
+	public EmployeeMaster(int employeeId, String employeeName, String password, String role, String userSalt) {
+		super();
+		this.employeeId = employeeId;
+		this.employeeName = employeeName;
+		this.password = password;
+		this.role = role;
+		this.userSalt = userSalt;
+	}
+
 	public String getUserSalt() {
 		return userSalt;
 	}

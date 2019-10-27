@@ -15,7 +15,6 @@ import org.apache.log4j.Logger;
 import com.cg.bean.EmployeeMaster;
 import com.cg.dao.AuthenticatorDao;
 import com.cg.dao.AuthenticatorDaoImpl;
-import com.cg.dao.TrainingProgramDaoImpl;
 
 
 public class AuthenticatorServiceImpl implements AuthenticatorService {
@@ -87,8 +86,10 @@ private static Optional<String> hashPassword (String password, String salt){
 			String salt = employee.getUserSalt();
 			String calculatedHash = hashPassword(password, salt).get();
 			if(calculatedHash.equals(employee.getPassword())) {
+				myLogger.info("Login SUCCESSFULL");
 				return employee;
 			} else {
+				myLogger.error("Login FAILED!!! Invalid credentials");
 				return null;
 			}
 		}
@@ -106,7 +107,7 @@ private static Optional<String> hashPassword (String password, String salt){
 		employee.setPassword(encryptedPassword);
 		employee.setRole(role);
 		employee.setUserSalt(salt);
-		
+		myLogger.info("New employee ADDEDD");
 		return dao.addUser(employee);
 	}
 }

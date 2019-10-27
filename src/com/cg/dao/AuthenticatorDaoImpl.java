@@ -6,11 +6,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
 import com.cg.bean.EmployeeMaster;
 
 public class AuthenticatorDaoImpl implements AuthenticatorDao{
-
 	static Logger myLogger =  Logger.getLogger(AuthenticatorDaoImpl.class);
 
 	@Override
