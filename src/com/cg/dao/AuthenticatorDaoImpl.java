@@ -74,6 +74,7 @@ public class AuthenticatorDaoImpl implements AuthenticatorDao{
 			}
 			else {
 				myLogger.error("Unable to find employee with employee id: "+employeeId);
+				System.out.println("Unable to find employee with employee id: "+employeeId); 
 				return null;
 			}
 			myLogger.info("Employee found with employee id: "+employeeId);

@@ -1,5 +1,6 @@
 package com.cg.cli;
 
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,6 +13,7 @@ import com.cg.exception.InvalidCourseException;
 import com.cg.service.AdminService;
 import com.cg.service.AdminServiceImpl;
 
+
 public class AdminCli {
 	
 	private static Scanner console;
@@ -21,16 +23,23 @@ public class AdminCli {
 
 	void AdminView(EmployeeMaster employee) {
 		System.out.println("Admin -- Welcome");
-		System.out.println(employee);
 		
 		int option = 0;
 		
 		while(true) {
-			System.out.println("1-Faculty Skill Maintenance.");
-			System.out.println("2-Course Maintenance.");
-			System.out.println("3-View Feedback Report.");
-			System.out.println("4-Back to home page.");
-			option = console.nextInt();
+			do {
+				try {
+					System.out.println("1-Faculty Skill Maintenance.");
+					System.out.println("2-Course Maintenance.");
+					System.out.println("3-View Feedback Report.");
+					System.out.println("4-Back to home page.");
+					option = console.nextInt();
+				} catch (InputMismatchException e) {
+					System.out.println("Invalid Input");
+				}
+				console.nextLine();
+			} while(option < 0);
+			
 			switch(option) {
 			case 1: facultySkillMaintenance(); break;
 			case 2: courseMaintenance(); break;
