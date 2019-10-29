@@ -89,9 +89,14 @@ public class AuthenticatorCli {
 
 	private static void signup() {
 		AuthenticatorService service = new AuthenticatorServiceImpl();
+		String id = null;
 		
-		System.out.println("Enter Employee ID");
-		int employeeId = console.nextInt();
+		do {
+			System.out.println("Enter Employee ID");
+			id = console.next();
+		} while(service.validateEmployeeId(id));
+		
+		int employeeId = Integer.parseInt(id);
 		
 		System.out.println("Enter Name");
 		String name = console.next();
