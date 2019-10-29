@@ -1,6 +1,7 @@
 package com.cg.cli;
 
 import java.sql.SQLException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import org.apache.log4j.PropertyConfigurator;
@@ -12,16 +13,13 @@ import com.cg.service.AuthenticatorServiceImpl;
 
 public class AuthenticatorCli {
 
-	private AuthenticatorService service;
 	private static Scanner console;
 
 	static {
 		console = new Scanner(System.in);
 	}
 
-	public AuthenticatorCli() {
-		service = new AuthenticatorServiceImpl();
-	}
+	
 
 	public static void main(String[] args) throws InterruptedException, TrainingProgramNotFoundException, SQLException {
 		PropertyConfigurator.configure("src/log4j.properties");
@@ -29,9 +27,17 @@ public class AuthenticatorCli {
 		int option = 0;
 
 		while (true) {
-			System.out.println("Enter Option");
-			System.out.println("1 - signup 2- login 3- exit");
-			option = console.nextInt();
+			do { 
+				try {
+					System.out.println("Enter Option");
+					System.out.println("1 - signup 2- login 3- exit");
+					option = console.nextInt();	
+				} catch (InputMismatchException e) {
+					System.out.println("Invalid Selection"); 
+				}
+				console.nextLine(); // to clear the buffer
+			} while(option < 0);
+			
 			switch (option) {
 			case 1: signup();
 				break;
@@ -61,12 +67,12 @@ public class AuthenticatorCli {
 		EmployeeMaster employee = service.authenticateUser(employeeId, password);
 		if(employee != null) {
 		switch (employee.getRole()) {
-		case "Participant": new ParticipantCli().participantView(employee);
-			break;
-		case "Admin": new AdminCli().AdminView(employee);
-			break;
-		case "Co-Ordinator": new CoOrdinatorCli().coordinatorView(employee);
-		}
+			case "Participant": new ParticipantCli().participantView(employee);
+				break;
+			case "Admin": new AdminCli().AdminView(employee);
+				break;
+			case "Co-Ordinator": new CoOrdinatorCli().coordinatorView(employee);
+			}
 		}
 		else {
 			System.out.println("Invalid Credentiails");
@@ -85,13 +91,21 @@ public class AuthenticatorCli {
 		System.out.println("Enter Password");
 		String password = console.next();
 		
-		int option;
+		int option = 0;
 		String role = null;
 		
 		while (true) {
-			System.out.println("Enter Role");
-			System.out.println("1 - Participant 2- Co-Ordinator 3- Admin 4- Exit");
-			option = console.nextInt();
+			do{
+				try {
+					System.out.println("Enter Role");
+					System.out.println("1 - Participant 2- Co-Ordinator 3- Admin 4- Exit");
+					option = console.nextInt();
+				} catch (InputMismatchException e) {
+					System.out.println("Invalid Selection");
+				}
+				console.nextLine();
+			} while(option < 0);
+			
 			switch (option) {
 			case 1: role = "Participant";
 				break;
