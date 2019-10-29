@@ -35,7 +35,7 @@ public class CourseMaster {
 	}
 	@Override
 	public String toString() {
-		return "CourseMaster [courseId=" + courseId + ", courseName=" + courseName + ", days=" + days + "]";
+		return "Course ID: " + courseId + ", Course Name: " + courseName + ", Duration: " + days + " days";
 	}
 	
 }

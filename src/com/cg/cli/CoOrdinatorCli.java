@@ -30,10 +30,7 @@ public class CoOrdinatorCli {
 	
 	void coordinatorView(EmployeeMaster employee) {
 		System.out.println("Co-Ordinator -- Welcome");
-		System.out.println(employee);
 		int option = 0;
-
-		
 
 		while (true) {
 			System.out.println("Enter Option");

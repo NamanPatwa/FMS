@@ -18,9 +18,7 @@ public class AuthenticatorCli {
 	static {
 		console = new Scanner(System.in);
 	}
-
 	
-
 	public static void main(String[] args) throws InterruptedException, TrainingProgramNotFoundException, SQLException {
 		PropertyConfigurator.configure("src/log4j.properties");
 		
