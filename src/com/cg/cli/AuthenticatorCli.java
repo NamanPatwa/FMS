@@ -23,14 +23,24 @@ public class AuthenticatorCli {
 
 	public static void main(String[] args) throws InterruptedException, TrainingProgramNotFoundException, SQLException {
 		PropertyConfigurator.configure("src/log4j.properties");
-
+		
+		System.out.println(" ________  ____    ____   ______   \r\n" + 
+							"|_   __  ||_   \\  /   _|.' ____ \\  \r\n" + 
+							"  | |_ \\_|  |   \\/   |  | (___ \\_| \r\n" + 
+							"  |  _|     | |\\  /| |   _.____`.  \r\n" + 
+							" _| |_     _| |_\\/_| |_ | \\____) | \r\n" + 
+							"|_____|   |_____||_____| \\______.' \r\n" + 
+							"                                   ");
+		
 		int option = 0;
 
 		while (true) {
 			do { 
 				try {
+					System.out.println("======================================");
+					System.out.println("Welcome to Feedback Management System ");
 					System.out.println("Enter Option");
-					System.out.println("1 - signup 2- login 3- exit");
+					System.out.println("1 - Signup 2 - Login 3 - Exit");
 					option = console.nextInt();	
 				} catch (InputMismatchException e) {
 					System.out.println("Invalid Selection"); 
