@@ -940,3 +940,9 @@
 2019-10-29-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Employee found with employee id: 1010
 2019-10-29-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Database connection closed and resources released
 2019-10-29-main-INFO -com.cg.service.AuthenticatorServiceImpl:Login SUCCESSFULL
+2019-10-29-main-INFO -com.cg.service.AuthenticatorServiceImpl:-----------------------------------------------------------------------------------------------------
+2019-10-29-main-INFO -com.cg.service.AuthenticatorServiceImpl:<<Authenticating Employee>>
+2019-10-29-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Connection successfully established with the database for getting employee information
+2019-10-29-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Employee found with employee id: 1010
+2019-10-29-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Database connection closed and resources released
+2019-10-29-main-INFO -com.cg.service.AuthenticatorServiceImpl:Login SUCCESSFULL

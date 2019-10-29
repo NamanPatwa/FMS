@@ -94,7 +94,7 @@ public class AuthenticatorCli {
 		do {
 			System.out.println("Enter Employee ID");
 			id = console.next();
-		} while(service.validateEmployeeId(id));
+		} while(!service.validateEmployeeId(id));
 		
 		int employeeId = Integer.parseInt(id);
 		
