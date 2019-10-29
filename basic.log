@@ -1,3 +1,52 @@
+<<<<<<< HEAD
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Connection successfully established with the database for adding Feedaback
+2019-10-29-main-ERROR-com.cg.dao.FeedbackDaoImpl:Failure to add new feedback
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Database connection closed and resources released
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Connection successfully established with the database for adding Feedaback
+2019-10-29-main-ERROR-com.cg.dao.FeedbackDaoImpl:Failure to add new feedback
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Database connection closed and resources released
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Connection successfully established with the database for adding Feedaback
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Update executed in feedback management table by adding new feedback
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Database connection closed and resources released
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Connection successfully established with the database for adding Feedaback
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Update executed in feedback management table by adding new feedback
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Database connection closed and resources released
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Connection successfully established with the database for adding Feedaback
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Update executed in feedback management table by adding new feedback
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Database connection closed and resources released
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Connection successfully established with the database for adding Feedaback
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Update executed in feedback management table by adding new feedback
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Database connection closed and resources released
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Connection successfully established with the database for matching training code with particiapnt Id
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Query for matching participant Id and training code executd successfully
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Participant added in list successfully
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Database connection closed and resources released
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Connection successfully established with the database for matching training code with particiapnt Id
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Query for matching participant Id and training code executd successfully
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Database connection closed and resources released
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Connection successfully established with the database for adding Feedaback
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Update executed in feedback management table by adding new feedback
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Database connection closed and resources released
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Connection successfully established with the database for adding Feedaback
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Update executed in feedback management table by adding new feedback
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Database connection closed and resources released
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Connection successfully established with the database for adding Feedaback
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Update executed in feedback management table by adding new feedback
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Database connection closed and resources released
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Connection successfully established with the database for adding Feedaback
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Update executed in feedback management table by adding new feedback
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Database connection closed and resources released
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Connection successfully established with the database for adding Feedaback
+2019-10-29-main-ERROR-com.cg.dao.FeedbackDaoImpl:Failure to add new feedback
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Database connection closed and resources released
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Connection successfully established with the database for matching training code with particiapnt Id
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Query for matching participant Id and training code executd successfully
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Participant added in list successfully
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Database connection closed and resources released
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Connection successfully established with the database for matching training code with particiapnt Id
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Query for matching participant Id and training code executd successfully
+2019-10-29-main-INFO -com.cg.dao.FeedbackDaoImpl:Database connection closed and resources released
+=======
 2019-10-27-main-INFO -com.cg.service.AuthenticatorServiceImpl:-----------------------------------------------------------------------------------------------------
 2019-10-27-main-INFO -com.cg.service.AuthenticatorServiceImpl:<<Adding a new Employee>>
 2019-10-27-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Connection successfully established with the database for adding new employee
@@ -762,3 +811,4 @@
 2019-10-29-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Employee found with employee id: 1111
 2019-10-29-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Database connection closed and resources released
 2019-10-29-main-INFO -com.cg.service.AuthenticatorServiceImpl:Login SUCCESSFULL
+>>>>>>> branch 'master' of https://github.com/NamanPatwa/FMS.git
