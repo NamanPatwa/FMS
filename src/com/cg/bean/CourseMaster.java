@@ -35,7 +35,6 @@ public class CourseMaster {
 	}
 	@Override
 	public String toString() {
-		return "Course ID: " + courseId + ", Course Name: " + courseName + ", Duration: " + days + " days";
+		return "Course ID: \t" + courseId + "\t, Course Name: \t" + courseName + "\t, Duration: \t" + days + " days";
 	}
-	
 }

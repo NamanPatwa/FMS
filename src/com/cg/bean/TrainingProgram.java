@@ -54,9 +54,7 @@ public class TrainingProgram {
 	}
 	@Override
 	public String toString() {
-		return "TrainingProgram [trainingCode=" + trainingCode + ", courseCode=" + courseCode + ", facultyCode="
-				+ facultyCode + ", startDate=" + startDate + ", endDate=" + endDate + "]";
-	}
-	
-	
+		return "Training Code: " + trainingCode + " Course Code: " + courseCode + " Faculty Code: "
+				+ facultyCode + " Start Date: " + startDate + " End Date: " + endDate ;
+	}	
 }

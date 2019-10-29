@@ -237,8 +237,7 @@ public class CoOrdinatorCli {
 			TrainingProgram result = service.fetchTrainingProgramByTrainingCode(code);
 			System.out.println(result.toString());
 		} catch (TrainingProgramNotFoundException e) {
-			System.out.println("Training Program is not Found");
-			e.printStackTrace();
+			System.out.println("Training Program with code: " + code + " not found");
 		}
 
 	}
