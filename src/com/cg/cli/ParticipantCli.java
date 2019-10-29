@@ -1,11 +1,7 @@
 package com.cg.cli;
 
 import java.sql.SQLException;
-<<<<<<< HEAD
 import java.util.InputMismatchException;
-=======
-
->>>>>>> branch 'master' of https://github.com/NamanPatwa/FMS.git
 import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;

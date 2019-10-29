@@ -5,6 +5,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.junit.After;
@@ -38,11 +39,13 @@ public class TrainingProgramDaoImplTest {
 	
 	//Not working
 	@Test
-	public void testGetTrainingProgramInfoByTrainingCode() throws TrainingProgramNotFoundException {
-		TrainingProgram tp = dao.fetchTrainingProgramByTrainingCode(800);
+	public void fetchByCode() throws TrainingProgramNotFoundException {
+		TrainingProgram tp = dao.fetchTrainingProgramByTrainingCode(1002);
+		java.util.Date date = new java.util.Date(2020, 5, 12);
+		//SimpleDateFormat sdf =  new 
 		Date startDate = new Date(2020, 02, 20);
-		Date endDate = new Date(2020, 03, 20);
-		System.out.println(startDate.toString());
+		Date endDate = new Date(date.getTime());
+		System.out.println(endDate);
 		assertEquals(800, tp.getTrainingCode());
 		assertEquals(1001, tp.getCourseCode());
 		assertEquals(200, tp.getFacultyCode());
@@ -105,7 +108,7 @@ public class TrainingProgramDaoImplTest {
 	public void testUpdateTrainingProgram() {
 		Date startDate = new Date(2030, 02, 20);
 		Date endDate = new Date(2030, 03, 20);
-		TrainingProgram tp = new TrainingProgram(801, 1001, 200, startDate, endDate);
+		TrainingProgram tp = new TrainingProgram(1002, 102, 1001, startDate, endDate);
 		TrainingProgram utp = null;
 		try {
 			utp = dao.updateTrainingProgram(tp);
