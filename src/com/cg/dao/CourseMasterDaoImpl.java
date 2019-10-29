@@ -31,7 +31,6 @@ public class CourseMasterDaoImpl implements CourseMasterDao {
 			else 
 				return 0;
 		} catch (SQLException e) {
-			e.printStackTrace();
 			throw new InvalidCourseException(e.getMessage());
 		} finally {
 			if(conn != null)
@@ -80,34 +79,30 @@ public class CourseMasterDaoImpl implements CourseMasterDao {
 	public CourseMaster fetchCourseByCourseId(int id) throws InvalidCourseException {
 		Connection conn = null;
 		CourseMaster course = null;
-		System.out.println("pehle");
 
 		try {
 			conn = JdbcUtil.getConnection();
 			PreparedStatement stmt = conn.prepareStatement(getCourseQuery);
 			stmt.setInt(1, id);
-			System.out.println("before get course");
 			ResultSet result = stmt.executeQuery();
-			System.out.println("after");
-			if(result.next()) {
+			if(!result.next()) {
+				throw new InvalidCourseException("Course does not exist..");
+			}
+			else {
 				course = new CourseMaster();
 				course.setCourseId(result.getInt(1));
 				course.setCourseName(result.getString(2));
 				course.setDays(result.getInt(3));
-				System.out.println("he");
-
-			} else
-				throw new InvalidCourseException("Course does not exist..");
+			}
+				
 			return course;
 		} catch (SQLException e) {
-			
 			throw new InvalidCourseException(e.getMessage());
 		} finally {
 			try {
 				if(conn != null)
 					conn.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
 			}
 		}
 	}
@@ -133,7 +128,6 @@ public class CourseMasterDaoImpl implements CourseMasterDao {
 			}
 			return course;
 		} catch (SQLException e) {
-			e.printStackTrace();
 			throw new InvalidCourseException(e.getMessage());
 		} finally {
 			try {
@@ -151,10 +145,18 @@ public class CourseMasterDaoImpl implements CourseMasterDao {
 		
 		try {
 			conn = JdbcUtil.getConnection();
-			PreparedStatement stmt = conn.prepareStatement(removeCourseQuery);
-			stmt.setInt(1, id);
-			stmt.executeUpdate();
-			return true;
+			PreparedStatement stmt1 = conn.prepareStatement(fetchCourseIdQuery);
+			stmt1.setInt(1, id);
+			ResultSet result = stmt1.executeQuery();
+			if(!result.next())
+				throw new InvalidCourseException("Course details can not be deleted.. course id not found.");
+			else {
+				PreparedStatement stmt = conn.prepareStatement(removeCourseQuery);
+				stmt.setInt(1, id);
+				stmt.executeUpdate();
+				return true;
+			}
+			
 		} catch (SQLException e) {
 			throw new InvalidCourseException(e.getMessage());
 		} finally {
@@ -182,7 +184,6 @@ public class CourseMasterDaoImpl implements CourseMasterDao {
 			System.out.println("after");
 			if(result.next()) {
 				return true;
-
 			} else
 				return false;
 		} catch (SQLException e) {

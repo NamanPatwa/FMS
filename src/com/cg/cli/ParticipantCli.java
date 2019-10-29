@@ -36,7 +36,7 @@ public class ParticipantCli {
 			do {
 				try {
 					System.out.println("Enter 1 to give Feedback");
-					System.out.println("Enter 2 to Exit");
+					System.out.println("Enter 2 to Go back to home page");
 					option = console.nextInt();
 				} catch (InputMismatchException e) {
 					System.out.println("Invalid Input");
@@ -44,16 +44,17 @@ public class ParticipantCli {
 					console.nextLine();
 			} while (option < 0);
 			
-			fetchTrainingCode();
 			switch (option) {
 			case 1:
+				fetchTrainingCode();
 				addFeedback();
 				break;
 			case 2:
-				System.exit(0);
+				break;
 			default:
 				System.out.println("Please Enter valid Key");
 			}
+			if(option == 2) break;
 		}
 	}
 	private void fetchTrainingCode(){

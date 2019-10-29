@@ -196,7 +196,7 @@ public class AdminCli {
 			System.out.println("Course Name: " + course.getCourseName());
 			System.out.println("Course Days: " + course.getDays());
 		} catch (InvalidCourseException e) {
-			e.printStackTrace();
+			System.out.println("Course does not exist..");
 		}
 		
 	}
