@@ -59,13 +59,20 @@ public class AdminCli {
 		
 		int option = 0;
 		while(true) {
-			System.out.println("1-Add Course details.");
-			System.out.println("2-Fetch Course details by course id.");
-			System.out.println("3-Fetch All Course details.");
-			System.out.println("4-Remove Course by course id.");
-			System.out.println("5-Update Course by course id.");
-			System.out.println("6-Back to admin.");
-			option = console.nextInt();
+			do {
+				try {
+					System.out.println("1-Add Course details.");
+					System.out.println("2-Fetch Course details by course id.");
+					System.out.println("3-Fetch All Course details.");
+					System.out.println("4-Remove Course by course id.");
+					System.out.println("5-Update Course by course id.");
+					System.out.println("6-Back to admin.");
+					option = console.nextInt();
+				} catch (InputMismatchException e) {
+					System.out.println("Invalid Input");
+				} 
+				console.nextLine();
+			} while (option < 0);
 			
 			switch(option) {
 			case 1: addCourseDetails(); break;
@@ -87,9 +94,16 @@ public class AdminCli {
 		
 		int option = 0;
 		while(true) {
-			System.out.println("1-Add Faculty details.");
-			System.out.println("2-Back to admin.");
-			option = console.nextInt();
+			do {
+				try {
+					System.out.println("1-Add Faculty details.");
+					System.out.println("2-Back to admin.");
+					option = console.nextInt();
+				} catch (InputMismatchException e) {
+					System.out.println("Invalid Input");
+				} 
+					console.nextLine();
+			} while(option < 0);
 			
 			switch(option) {
 			case 1: addFacultyDetails(); break;

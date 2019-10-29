@@ -1,5 +1,6 @@
 package com.cg.cli;
 
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -24,12 +25,20 @@ public class FeedbackReportCli {
 		int option = 0;
 		
 		while(true) {
-			System.out.println("Enter Feedback Category :");
-			System.out.println("1 - Feedback Reports of Month");
-			System.out.println("2 - Feedback Reports by Faculty for month");
-			System.out.println("3 - Feedback Defaulters of the month");
-			System.out.println("4 - Return to Previous Page");
-			option = console.nextInt();
+			do {
+				try {
+					System.out.println("Enter Feedback Category :");
+					System.out.println("1 - Feedback Reports of Month");
+					System.out.println("2 - Feedback Reports by Faculty for month");
+					System.out.println("3 - Feedback Defaulters of the month");
+					System.out.println("4 - Return to Previous Page");
+					option = console.nextInt();
+				} catch (InputMismatchException e) {
+					System.out.println("Invalid Input");
+				}
+				console.nextLine();
+			} while (option < 0);
+			
 			switch(option) {
 				case 1: feedbackByMonth();	break;
 				case 2: feedbackByFaculty(); break;

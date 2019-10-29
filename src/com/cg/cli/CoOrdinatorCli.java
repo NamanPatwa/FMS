@@ -3,6 +3,7 @@ package com.cg.cli;
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -33,13 +34,21 @@ public class CoOrdinatorCli {
 		int option = 0;
 
 		while (true) {
-			System.out.println("Enter Option");
-			System.out.println("1 - Training Program Maintenance");
-			System.out.println("2 - Participant Enrollment");
-			System.out.println("3 - View Feedback Report");
-			System.out.println("4 - Back to home page");
-
-			option = console.nextInt();
+			do {
+				try {
+				System.out.println("Enter Option");
+				System.out.println("1 - Training Program Maintenance");
+				System.out.println("2 - Participant Enrollment");
+				System.out.println("3 - View Feedback Report");
+				System.out.println("4 - Back to home page");
+	
+				option = console.nextInt();
+				} catch (InputMismatchException e) {
+					System.out.println("Invalid Input");
+				} 
+				console.nextLine();
+			} while(option < 0);
+			
 			switch (option) {
 			case 1:
 				trainingProgramMaintenance();
@@ -65,11 +74,19 @@ public class CoOrdinatorCli {
 		int option = 0;
 		
 		while (true) {
-			System.out.println("Enter Option");
-			System.out.println("1 - Add Participant");
-			System.out.println("2 - Back");
+			do {
+				try {
+				System.out.println("Enter Option");
+				System.out.println("1 - Add Participant");
+				System.out.println("2 - Back");
+				
+				option = console.nextInt();
+				} catch (InputMismatchException e) {
+					System.out.println("Invalid Input");
+				}
+				console.nextLine();
+			} while (option < 0);
 			
-			option = console.nextInt();
 			switch (option) {
 			case 1:
 				addParticipant();
@@ -88,15 +105,24 @@ public class CoOrdinatorCli {
 		int option = 0;
 		
 		while (true) {
-			System.out.println("Enter Option");
-			System.out.println("1 - Add Training Program");
-			System.out.println("2 - Show All Training Program");
-			System.out.println("3 - Show Training Program by Training Code");
-			System.out.println("4 - Update Training Program");
-			System.out.println("5 - Remove Training Program");
-			System.out.println("6 - Back");
-
-			option = console.nextInt();
+			do {
+				try {
+					System.out.println("Enter Option");
+					System.out.println("1 - Add Training Program");
+					System.out.println("2 - Show All Training Program");
+					System.out.println("3 - Show Training Program by Training Code");
+					System.out.println("4 - Update Training Program");
+					System.out.println("5 - Remove Training Program");
+					System.out.println("6 - Back");
+		
+					option = console.nextInt();
+				}
+				catch (InputMismatchException e) {
+					System.out.println("Invalid Input");
+				}
+				console.nextLine();
+			} while (option < 0);
+			
 			switch (option) {
 			case 1:
 				addTrainingProgram();

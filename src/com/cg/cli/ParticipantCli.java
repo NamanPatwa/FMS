@@ -1,6 +1,7 @@
 package com.cg.cli;
 
 import java.sql.SQLException;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
@@ -28,10 +29,18 @@ public class ParticipantCli {
 
 		int option = 0;
 		while (true) {
-			System.out.println("Enter 1 to give Feedback");
-			System.out.println("Enter 2 to Exit");
-			option = console.nextInt();
-
+			
+			do {
+				try {
+					System.out.println("Enter 1 to give Feedback");
+					System.out.println("Enter 2 to Exit");
+					option = console.nextInt();
+				} catch (InputMismatchException e) {
+					System.out.println("Invalid Input");
+				}
+					console.nextLine();
+			} while (option < 0);
+			
 			switch (option) {
 			case 1:
 				addFeedback();
