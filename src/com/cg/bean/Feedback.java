@@ -1,6 +1,20 @@
 package com.cg.bean;
 
 public class Feedback {
+	public Feedback(int trainingCode, int participantId, int presentationAndCommunication, int doubtClarification,
+			int timeManagement, int handout, int hwSwNwAvailability, String comments, String suggestion) {
+		super();
+		this.trainingCode = trainingCode;
+		this.participantId = participantId;
+		this.presentationAndCommunication = presentationAndCommunication;
+		this.doubtClarification = doubtClarification;
+		this.timeManagement = timeManagement;
+		this.handout = handout;
+		this.hwSwNwAvailability = hwSwNwAvailability;
+		this.comments = comments;
+		this.suggestion = suggestion;
+	}
+
 	private int trainingCode;
 	private int participantId;
 	private int presentationAndCommunication;

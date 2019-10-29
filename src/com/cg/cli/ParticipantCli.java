@@ -1,18 +1,24 @@
 package com.cg.cli;
 
 import java.sql.SQLException;
+
 import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.log4j.Logger;
+
 import com.cg.bean.EmployeeMaster;
 import com.cg.bean.Feedback;
 import com.cg.bean.Participant;
+import com.cg.exception.FacultyDoesNotExist;
+import com.cg.exception.FeedbackMasterNotExist;
 import com.cg.exception.TrainingProgramNotFoundException;
 import com.cg.service.ParticipantService;
 import com.cg.service.ParticipantServiceImpl;
 
 public class ParticipantCli {
+	static Logger myLogger =  Logger.getLogger(ParticipantCli.class);
 	private static Scanner console;
     int participantId;
     int trainingcode;
@@ -23,15 +29,13 @@ public class ParticipantCli {
 	
 	void participantView(EmployeeMaster employee) throws InterruptedException, TrainingProgramNotFoundException, SQLException {
 		participantId =employee.getEmployeeId();
-		fetchTrainingCode();
-		System.out.println(trcode);
-
+		
 		int option = 0;
 		while (true) {
 			System.out.println("Enter 1 to give Feedback");
 			System.out.println("Enter 2 to Exit");
 			option = console.nextInt();
-
+			fetchTrainingCode();
 			switch (option) {
 			case 1:
 				addFeedback();
@@ -43,18 +47,28 @@ public class ParticipantCli {
 			}
 		}
 	}
-	private void fetchTrainingCode() throws TrainingProgramNotFoundException,InterruptedException, SQLException {
+	private void fetchTrainingCode(){
 		ParticipantService service = new ParticipantServiceImpl();
 		int t = 0;
 		int a=0;
 		String trid=null;
+		System.out.println("Training code should be number having minimum 2 and maximum 5 digit");
+		try {
+			TimeUnit.SECONDS.sleep(2);
+		} catch (InterruptedException e1) {
+			myLogger.info("Failed in Sleeping");
+			System.out.println("!OOPS There Is an error in Processing Try again");
+		}
 		do {
 			try {
-				System.out.println("Training code should be number having minimum 2 and maximum 5 digit");
 				do {
 					if(a>0) {
 						System.out.println("You have entered wrong traing code Please follow the instruction");
-						TimeUnit.SECONDS.sleep(2);
+						try {
+							TimeUnit.SECONDS.sleep(2);
+						} catch (InterruptedException e) {
+							myLogger.info("Failed in Sleeping");
+						}
 						System.out.println("Enter training code for which you want to give feedback again");
 					    }
 					else
@@ -64,27 +78,43 @@ public class ParticipantCli {
 				}while(!service.validatetrainingcode(trid));
 				trainingcode=Integer.parseInt(trid);
 				trcode = service.getAllTrainingCode(participantId,trainingcode);
+				myLogger.info("Participant Id and training code matched successfully");
 				t++;
 			} catch (TrainingProgramNotFoundException e) {
+				myLogger.info("participant is not a part of training programme which he entered");
 				System.out.println("Either You have entered wrong Training code or u are not a part of that training which u have entered");
-				TimeUnit.SECONDS.sleep(3);
+				try {
+					TimeUnit.SECONDS.sleep(2);
+				} catch (InterruptedException e1) {
+					myLogger.info("Failed in Sleeping");
+				}
 			}
 		} while (t != 1);
 
 	}
 	
-	private void addFeedback() throws InterruptedException, SQLException {
+	private void addFeedback(){
 		ParticipantService service = new ParticipantServiceImpl();
 		String prs_cmm, clrfy_doubt, tm, hnd_out, hw_sw_ntwrk,comm,sugg;
 		System.out.println(
 				"Rules for grade \n5 For Excellent  4 For Good  3 For Average  2 For Bellow Average & 1 for Poor ");
-		TimeUnit.SECONDS.sleep(4);
+		try {
+			TimeUnit.SECONDS.sleep(2);
+		} catch (InterruptedException e1) {
+			myLogger.info("Failed in Sleeping");
+			System.out.println("!OOPS There Is an error in Processing Try again");
+		}
 		
 		int p = 0;
 		do {
 			if (p > 0) {
 				System.out.println("You have not followed the rule please read above Instruction Carefully");
-				TimeUnit.SECONDS.sleep(3);
+				try {
+					TimeUnit.SECONDS.sleep(2);
+				} catch (InterruptedException e) {
+					myLogger.info("Failed in Sleeping");
+					System.out.println("!OOPS There Is an error in Processing Try again");
+				}
 				System.out.println("Enter correct Grade for Presentation and communication skill");
 			} else
 				System.out.println("Enter Grade for Presentation and communication skill");
@@ -96,7 +126,12 @@ public class ParticipantCli {
 		do {
 			if (q > 0) {
 				System.out.println("You have not followed the rule please read above Instruction Carefully");
-				TimeUnit.SECONDS.sleep(3);
+				try {
+					TimeUnit.SECONDS.sleep(2);
+				} catch (InterruptedException e) {
+					myLogger.info("Failed in Sleeping");
+					System.out.println("!OOPS There Is an error in Processing Try again");
+				}
 				System.out.println("Enter correct Grade for doubt Clarification");
 			} else
 				System.out.println("Enter Grade for doubt Clarrification ");
@@ -108,7 +143,12 @@ public class ParticipantCli {
 		do {
 			if (r > 0) {
 				System.out.println("You have not followed the rule please read above Instruction Carefully");
-				TimeUnit.SECONDS.sleep(3);
+				try {
+					TimeUnit.SECONDS.sleep(2);
+				} catch (InterruptedException e) {
+					myLogger.info("Failed in Sleeping");
+					System.out.println("!OOPS There Is an error in Processing Try again");
+				}
 				System.out.println("Enter correct Grade for doubt Clarification");
 			} else
 				System.out.println("Enter Grade for Time Management ");
@@ -120,7 +160,12 @@ public class ParticipantCli {
 		do {
 			if (s > 0) {
 				System.out.println("You have not followed the rule please read above Instruction Carefully");
-				TimeUnit.SECONDS.sleep(3);
+				try {
+					TimeUnit.SECONDS.sleep(2);
+				} catch (InterruptedException e) {
+					myLogger.info("Failed in Sleeping");
+					System.out.println("!OOPS There Is an error in Processing Try again");
+				}
 				System.out.println("Enter correct Grade for hand out given by trainers");
 			} else
 				System.out.println("Enter Grade for handout given by trainer ");
@@ -132,7 +177,12 @@ public class ParticipantCli {
 		do {
 			if (t > 0) {
 				System.out.println("You have not followed the rule please read above Instruction Carefully");
-				TimeUnit.SECONDS.sleep(3);
+				try {
+					TimeUnit.SECONDS.sleep(2);
+				} catch (InterruptedException e) {
+					myLogger.info("Failed in Sleeping");
+					System.out.println("!OOPS There Is an error in Processing Try again");
+				}
 				System.out.println("Enter correct Grade for hardware software and network provided during training");
 			} else
 				System.out.println("Enter Grade for hardware software and network provided during training ");
@@ -141,13 +191,23 @@ public class ParticipantCli {
 		} while (!service.validatehw_sw_ntwrk(hw_sw_ntwrk));
 		
 		System.out.println("Comment and Suggestion Should be Minimum of 5 character and maximum of 200 ");
-		TimeUnit.SECONDS.sleep(3);
+		try {
+			TimeUnit.SECONDS.sleep(2);
+		} catch (InterruptedException e1) {
+			myLogger.info("Failed in Sleeping");
+			System.out.println("!OOPS There Is an error in Processing Try again");
+		}
 		
 		int u=0;
 		do {
 		   if(u>0) {
 		    System.out.println("You have not followed Comment Rule Please Follow this ");
-			TimeUnit.SECONDS.sleep(2);
+			try {
+				TimeUnit.SECONDS.sleep(2);
+			} catch (InterruptedException e) {
+				myLogger.info("Failed in Sleeping");
+				System.out.println("!OOPS There Is an error in Processing Try again");
+			}
 			System.out.println("Enter Comments Regarding Training Programme Again");
 		}else
 			System.out.println("Enter Your Comments Regarding Training Programme");
@@ -159,7 +219,12 @@ public class ParticipantCli {
 		do {
 		if(v>0){
 			System.out.println("You have not followed Suggestion Rule Please Follow this ");
-			TimeUnit.SECONDS.sleep(3);
+			try {
+				TimeUnit.SECONDS.sleep(2);
+			} catch (InterruptedException e) {
+				myLogger.info("Failed in Sleeping");
+				System.out.println("!OOPS There Is an error in Processing Try again");
+			}
 			System.out.println("Enter Suggestion Regarding Training Programme and Trainer Again");
 		}
 		else
@@ -178,9 +243,16 @@ public class ParticipantCli {
 		feed.setTimeManagement(Integer.parseInt(tm));
 		feed.setComments(comm);
 		feed.setSuggestion(sugg);
+		myLogger.info("All variables of Feedcak class has been setted sucessfully");
 		par.setTrainingcode(trainingcode);
 		par.setParticipantId(participantId);
-        service.saveFeedback(feed, par);
+		myLogger.info("All variables of Participant class has been setted sucessfully");
+        try {
+			service.saveFeedback(feed, par);
+		} catch (FeedbackMasterNotExist e) {
+			System.out.println("Feedback Not Saved try again");
+		}
+        
 	}
 	
 }

@@ -1,6 +1,7 @@
 package com.cg.dao;
 
 import com.cg.bean.Faculty;
+
 import com.cg.exception.FacultyDoesNotExist;
 
 public interface FacultyDao {
