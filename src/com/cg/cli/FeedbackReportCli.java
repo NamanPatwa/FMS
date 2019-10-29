@@ -36,7 +36,7 @@ public class FeedbackReportCli {
 				case 3: feedbackDeafulters(); break;
 				case 4: break;
 				default : System.out.println("Invalid Selection Please Enter Again");
-			} break;
+			} if(option == 4)break;
 		}
 	}
 

@@ -110,4 +110,13 @@ private static Optional<String> hashPassword (String password, String salt){
 		myLogger.info("New employee ADDEDD");
 		return dao.addUser(employee);
 	}
+
+	@Override
+	public boolean validateEmployeeId(String employeeId) {
+		 if(employeeId.matches(validateEmployeeId)) {
+			 return true;
+		 }
+		 System.out.println("Invalid Employee ID can only be number");
+		 return false;
+	}
 }

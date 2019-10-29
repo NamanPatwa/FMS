@@ -12,6 +12,7 @@ import com.cg.exception.InvalidCourseException;
 import com.cg.service.AdminService;
 import com.cg.service.AdminServiceImpl;
 
+
 public class AdminCli {
 	
 	private static Scanner console;

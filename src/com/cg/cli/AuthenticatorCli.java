@@ -47,10 +47,14 @@ public class AuthenticatorCli {
 	private static void login() throws InterruptedException, TrainingProgramNotFoundException, SQLException {
 		AuthenticatorService service = new AuthenticatorServiceImpl();
 		int employeeId;
-		String password;
+		String id,password;
 		
-		System.out.println("Enter Employee ID");
-		employeeId = console.nextInt();
+		do{
+			System.out.println("Enter Employee ID");
+			id = console.next();
+		}while(!service.validateEmployeeId(id));
+		employeeId = Integer.parseInt(id);
+		
 		System.out.println("Enter Password");
 		password = console.next();
 		
