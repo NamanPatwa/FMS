@@ -8,16 +8,20 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.cg.bean.EmployeeMaster;
-
+/**
+ *@version 1
+ *Date Oct 28 2019
+ *This is authenticatorServiceImplTest class 
+ */
 public class AuthenticatorServiceImplTest {
 
 	AuthenticatorService service;
-	
+	//Before Initialization of testing
 	@Before
 	public void init(){
 		service=new AuthenticatorServiceImpl();
 	}
-	
+	//At the end of testing
 	@After
 	public void release() {
 		service=null;

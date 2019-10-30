@@ -13,7 +13,11 @@ import com.cg.dao.FeedbackDaoImpl;
 import com.cg.exception.FacultyDoesNotExist;
 import com.cg.exception.FeedbackMasterNotExist;
 import com.cg.exception.TrainingProgramNotFoundException;
-
+/**
+ * @version 1
+ * Date Oct 12 2019
+ * This is a Participantserviceimpl class which implements ParticipantService interface  
+ */
 
 public class ParticipantServiceImpl implements ParticipantService {
 	

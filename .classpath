@@ -3,7 +3,7 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
-	<classpathentry kind="lib" path="D:/JEE Cloud/log4j.jar"/>
-	<classpathentry kind="lib" path="D:/JEE Cloud/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="E:/Prem/log4j-1.2.15.jar"/>
+	<classpathentry kind="lib" path="E:/Prem/ojdbc6.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

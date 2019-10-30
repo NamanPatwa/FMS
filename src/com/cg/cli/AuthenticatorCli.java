@@ -10,7 +10,11 @@ import com.cg.bean.EmployeeMaster;
 import com.cg.exception.TrainingProgramNotFoundException;
 import com.cg.service.AuthenticatorService;
 import com.cg.service.AuthenticatorServiceImpl;
-
+/**
+ * @version 1
+ * Date Oct 3 2019
+ * This is a Authenticator cli class which has main method and authenticate user to signup and login
+ */
 public class AuthenticatorCli {
 
 	private static Scanner console;
@@ -18,7 +22,13 @@ public class AuthenticatorCli {
 	static {
 		console = new Scanner(System.in);
 	}
-	
+	/**
+	 * Main Method
+	 * @param args
+	 * @throws InterruptedException
+	 * @throws TrainingProgramNotFoundException
+	 * @throws SQLException
+	 */
 	public static void main(String[] args) throws InterruptedException, TrainingProgramNotFoundException, SQLException {
 		PropertyConfigurator.configure("src/log4j.properties");
 		
@@ -57,7 +67,12 @@ public class AuthenticatorCli {
 		}
 	}
 	
-	
+	/**
+	 * Method to login
+	 * @throws InterruptedException
+	 * @throws TrainingProgramNotFoundException
+	 * @throws SQLException
+	 */
 	private static void login() throws InterruptedException, TrainingProgramNotFoundException, SQLException {
 		AuthenticatorService service = new AuthenticatorServiceImpl();
 		int employeeId;
@@ -86,7 +101,9 @@ public class AuthenticatorCli {
 			System.out.println("Invalid Credentiails");
 		}
 	}
-
+	/**
+	 * Method to sign up a  user
+	 */
 	private static void signup() {
 		AuthenticatorService service = new AuthenticatorServiceImpl();
 		String id = null;

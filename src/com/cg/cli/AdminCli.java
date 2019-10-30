@@ -12,15 +12,24 @@ import com.cg.exception.FacultyDoesNotExist;
 import com.cg.exception.InvalidCourseException;
 import com.cg.service.AdminService;
 import com.cg.service.AdminServiceImpl;
-
+/**
+ * @version 1
+ *  Date Oct 2 2019 
+ *  This is a Admin Cli having all the functionality related to Admin
+ */
 
 public class AdminCli {
 	
+	//A simple text scanner which can parse primitive types and strings using regular expressions
 	private static Scanner console;
 	static {
 		console = new Scanner(System.in);
 	}
-
+	/**
+	 * Admin view method having switch case for different Operation
+	 * 
+	 * @param employee
+	 */
 	void AdminView(EmployeeMaster employee) {
 		System.out.println("Admin -- Welcome");
 		
@@ -53,7 +62,11 @@ public class AdminCli {
 		}
 	}
 	
-	
+	/**
+	 * Method for Maintenance of course having add course, fetch course by id,fetch
+	 * all courses details, remove course by id, update course by id as
+	 * functionality.
+	 */
 	private void courseMaintenance() {
 		System.out.println("Course Maintenance -- Welcome");
 		
@@ -88,7 +101,9 @@ public class AdminCli {
 		}
 	}
 
-
+	/**
+	 * Method for Maintenance of faculty skill
+	 */
 	private void facultySkillMaintenance() {
 		System.out.println("faculty skill maintenance -- Welcome");
 		
@@ -114,7 +129,9 @@ public class AdminCli {
 				break;
 		}
 	}
-
+	/**
+	 * Method to update course by Id
+	 */
 
 	private static void updateCoureByCourseId() {
 		AdminService service = new AdminServiceImpl();
@@ -148,7 +165,9 @@ public class AdminCli {
 		}
 		
 	}
-
+	/**
+	 * method to remove Course by Id
+	 */
 	private static void removeCourseByCourseId() {
 		AdminService service = new AdminServiceImpl();
 		String courseid;
@@ -166,7 +185,9 @@ public class AdminCli {
 		}
 		
 	}
-
+	/**
+	 * Method to fetch all course
+	 */
 	private static void fetchAllCourseDetails() {
 		AdminService service = new AdminServiceImpl();
 		
@@ -180,7 +201,9 @@ public class AdminCli {
 		}
 		
 	}
-
+	/**
+	 * Method to fetch course by id
+	 */
 	private static void fetchCourseDetails() {
 		AdminService service = new AdminServiceImpl();
 		String courseid;
@@ -200,7 +223,9 @@ public class AdminCli {
 		}
 		
 	}
-
+	/**
+	 * Method to add course details
+	 */
 	private static void addCourseDetails() {
 		AdminService service = new AdminServiceImpl();
 		String coursename, coursedays;
@@ -227,7 +252,9 @@ public class AdminCli {
 		}
 		
 	}
-	
+	/**
+	 * Method to add faculty details
+	 */
 	private static void addFacultyDetails() {
 		AdminService service = new AdminServiceImpl();
 		String facultyId, skillset;

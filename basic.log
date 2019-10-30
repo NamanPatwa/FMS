@@ -1428,3 +1428,108 @@
 2019-10-30-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Employee found with employee id: 1004
 2019-10-30-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Database connection closed and resources released
 2019-10-30-main-INFO -com.cg.service.AuthenticatorServiceImpl:Login SUCCESSFULL
+2019-10-30-main-INFO -com.cg.service.AuthenticatorServiceImpl:-----------------------------------------------------------------------------------------------------
+2019-10-30-main-INFO -com.cg.service.AuthenticatorServiceImpl:<<Authenticating Employee>>
+2019-10-30-main-ERROR-com.cg.dao.AuthenticatorDaoImpl:Failed to perform fetch operation
+2019-10-30-main-INFO -com.cg.service.AuthenticatorServiceImpl:-----------------------------------------------------------------------------------------------------
+2019-10-30-main-INFO -com.cg.service.AuthenticatorServiceImpl:<<Authenticating Employee>>
+2019-10-30-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Connection successfully established with the database for getting employee information
+2019-10-30-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Employee found with employee id: 103
+2019-10-30-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Database connection closed and resources released
+2019-10-30-main-INFO -com.cg.service.AuthenticatorServiceImpl:Login SUCCESSFULL
+2019-10-30-main-INFO -com.cg.service.AuthenticatorServiceImpl:-----------------------------------------------------------------------------------------------------
+2019-10-30-main-INFO -com.cg.service.AuthenticatorServiceImpl:<<Authenticating Employee>>
+2019-10-30-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Connection successfully established with the database for getting employee information
+2019-10-30-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Employee found with employee id: 105
+2019-10-30-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Database connection closed and resources released
+2019-10-30-main-INFO -com.cg.service.AuthenticatorServiceImpl:Login SUCCESSFULL
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:Connection successfully established with the database for fetching training programs from database
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:All training programs fetched successfully
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:Database connection closed and resources released
+2019-10-30-main-INFO -com.cg.service.AuthenticatorServiceImpl:-----------------------------------------------------------------------------------------------------
+2019-10-30-main-INFO -com.cg.service.AuthenticatorServiceImpl:<<Authenticating Employee>>
+2019-10-30-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Connection successfully established with the database for getting employee information
+2019-10-30-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Employee found with employee id: 103
+2019-10-30-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Database connection closed and resources released
+2019-10-30-main-INFO -com.cg.service.AuthenticatorServiceImpl:Login SUCCESSFULL
+2019-10-30-main-INFO -com.cg.dao.FacultyDaoImpl:Connection successfully established with the database to add Faculty skill from database
+2019-10-30-main-INFO -com.cg.dao.FacultyDaoImpl:New Faculty skill added with faculty id: 107
+2019-10-30-main-INFO -com.cg.dao.FacultyDaoImpl:faculty skill updated
+2019-10-30-main-INFO -com.cg.dao.FacultyDaoImpl:Database connection closed and resources released
+2019-10-30-main-INFO -com.cg.service.AdminServiceImpl:-----------------------------------------------------------------------------------------------------
+2019-10-30-main-INFO -com.cg.service.AdminServiceImpl:<<Validating Course>>
+2019-10-30-main-INFO -com.cg.service.AdminServiceImpl:Course has enrolled in course_master.
+2019-10-30-main-INFO -com.cg.dao.CourseMasterDaoImpl:Connection successfully established with the database for adding new course
+2019-10-30-main-INFO -com.cg.dao.CourseMasterDaoImpl:New Course program added with course code: 0
+2019-10-30-main-INFO -com.cg.dao.CourseMasterDaoImpl:Database connection closed and resources released
+2019-10-30-main-INFO -com.cg.service.AdminServiceImpl:-----------------------------------------------------------------------------------------------------
+2019-10-30-main-INFO -com.cg.service.AdminServiceImpl:Fetching course by course_id from course_master.
+2019-10-30-main-INFO -com.cg.dao.CourseMasterDaoImpl:Connection successfully established with the database for fetching course from database
+2019-10-30-main-INFO -com.cg.dao.CourseMasterDaoImpl:Course fetched successfully for course code: 205
+2019-10-30-main-INFO -com.cg.dao.CourseMasterDaoImpl:Database connection closed and resources released
+2019-10-30-main-INFO -com.cg.service.AdminServiceImpl:-----------------------------------------------------------------------------------------------------
+2019-10-30-main-INFO -com.cg.service.AdminServiceImpl:Fetching all courses from course_master.
+2019-10-30-main-INFO -com.cg.dao.CourseMasterDaoImpl:Connection successfully established with the database
+2019-10-30-main-INFO -com.cg.dao.CourseMasterDaoImpl:Fetching all courses
+2019-10-30-main-INFO -com.cg.dao.CourseMasterDaoImpl:Database connection closed and resources released
+2019-10-30-main-INFO -com.cg.dao.CourseMasterDaoImpl:Connection successfully established with the database to remove course from database
+2019-10-30-main-INFO -com.cg.dao.CourseMasterDaoImpl:Course program successfully removed for course code: 205
+2019-10-30-main-INFO -com.cg.dao.CourseMasterDaoImpl:Database connection closed and resources released
+2019-10-30-main-INFO -com.cg.service.AdminServiceImpl:-----------------------------------------------------------------------------------------------------
+2019-10-30-main-INFO -com.cg.service.AdminServiceImpl:Updated course from course_master.
+2019-10-30-main-INFO -com.cg.dao.CourseMasterDaoImpl:Connection successfully established from database
+2019-10-30-main-INFO -com.cg.dao.CourseMasterDaoImpl:Course program successfully updated for course id: 204
+2019-10-30-main-INFO -com.cg.dao.CourseMasterDaoImpl:Database connection closed and resources released
+2019-10-30-main-INFO -com.cg.service.AuthenticatorServiceImpl:-----------------------------------------------------------------------------------------------------
+2019-10-30-main-INFO -com.cg.service.AuthenticatorServiceImpl:<<Authenticating Employee>>
+2019-10-30-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Connection successfully established with the database for getting employee information
+2019-10-30-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Employee found with employee id: 101
+2019-10-30-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Database connection closed and resources released
+2019-10-30-main-INFO -com.cg.service.AuthenticatorServiceImpl:Login SUCCESSFULL
+2019-10-30-main-INFO -com.cg.service.ParticipantService:Training code validated
+2019-10-30-main-INFO -com.cg.dao.FeedbackDaoImpl:Connection successfully established with the database for matching training code with particiapnt Id
+2019-10-30-main-INFO -com.cg.dao.FeedbackDaoImpl:Query for matching participant Id and training code executd successfully
+2019-10-30-main-INFO -com.cg.dao.FeedbackDaoImpl:Database connection closed and resources released
+2019-10-30-main-INFO -com.cg.cli.ParticipantCli:Participant Id and training code matched successfully
+2019-10-30-main-INFO -com.cg.service.ParticipantService:Training code validated
+2019-10-30-main-INFO -com.cg.dao.FeedbackDaoImpl:Connection successfully established with the database for matching training code with particiapnt Id
+2019-10-30-main-INFO -com.cg.dao.FeedbackDaoImpl:Query for matching participant Id and training code executd successfully
+2019-10-30-main-INFO -com.cg.dao.FeedbackDaoImpl:Participant added in list successfully
+2019-10-30-main-INFO -com.cg.dao.FeedbackDaoImpl:Database connection closed and resources released
+2019-10-30-main-INFO -com.cg.cli.ParticipantCli:Participant Id and training code matched successfully
+2019-10-30-main-INFO -com.cg.service.ParticipantService:feedback for presentation and communication validated
+2019-10-30-main-INFO -com.cg.service.ParticipantService:feedback for Clarifying doubt validated
+2019-10-30-main-INFO -com.cg.service.ParticipantService:feedback for Time Management validated
+2019-10-30-main-INFO -com.cg.service.ParticipantService:feedback for hand Out validated
+2019-10-30-main-INFO -com.cg.service.ParticipantService:feedback for hardware software and networking validated
+2019-10-30-main-INFO -com.cg.service.ParticipantService:Comment validated
+2019-10-30-main-INFO -com.cg.service.ParticipantService:Comment validated
+2019-10-30-main-INFO -com.cg.service.ParticipantService:Suggestion validated
+2019-10-30-main-INFO -com.cg.cli.ParticipantCli:All variables of Feedcak class has been setted sucessfully
+2019-10-30-main-INFO -com.cg.cli.ParticipantCli:All variables of Participant class has been setted sucessfully
+2019-10-30-main-INFO -com.cg.dao.FeedbackDaoImpl:Connection successfully established with the database for adding Feedaback
+2019-10-30-main-INFO -com.cg.dao.FeedbackDaoImpl:Update executed in feedback management table by adding new feedback
+2019-10-30-main-INFO -com.cg.dao.FeedbackDaoImpl:Database connection closed and resources released
+2019-10-30-main-INFO -com.cg.service.AuthenticatorServiceImpl:-----------------------------------------------------------------------------------------------------
+2019-10-30-main-INFO -com.cg.service.AuthenticatorServiceImpl:<<Authenticating Employee>>
+2019-10-30-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Connection successfully established with the database for getting employee information
+2019-10-30-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Employee found with employee id: 105
+2019-10-30-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Database connection closed and resources released
+2019-10-30-main-INFO -com.cg.service.AuthenticatorServiceImpl:Login SUCCESSFULL
+2019-10-30-main-INFO -com.cg.service.CoordinatorServiceImpl:-----------------------------------------------------------------------------------------------------
+2019-10-30-main-INFO -com.cg.service.CoordinatorServiceImpl:<<Validating Participant>>
+2019-10-30-main-INFO -com.cg.service.CoordinatorServiceImpl:Employee is valid participant.
+2019-10-30-main-INFO -com.cg.service.CoordinatorServiceImpl:Participant has not enrolled in course.
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:Connection successfully established with the database to remove training program from database
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:Training date successfully found for training code: 301
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:Database connection closed and resources released
+2019-10-30-main-INFO -com.cg.service.CoordinatorServiceImpl:The given course date is after current date.
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:Connection successfully established with the database for fetching training programs from database
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:All training programs fetched successfully
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:Database connection closed and resources released
+2019-10-30-main-INFO -com.cg.service.AuthenticatorServiceImpl:-----------------------------------------------------------------------------------------------------
+2019-10-30-main-INFO -com.cg.service.AuthenticatorServiceImpl:<<Authenticating Employee>>
+2019-10-30-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Connection successfully established with the database for getting employee information
+2019-10-30-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Employee found with employee id: 103
+2019-10-30-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Database connection closed and resources released
+2019-10-30-main-INFO -com.cg.service.AuthenticatorServiceImpl:Login SUCCESSFULL
