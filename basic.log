@@ -1230,3 +1230,118 @@
 =======
 >>>>>>> branch 'master' of https://github.com/NamanPatwa/FMS.git
 >>>>>>> branch 'master' of https://github.com/NamanPatwa/FMS.git
+2019-10-30-main-INFO -com.cg.service.AuthenticatorServiceImpl:-----------------------------------------------------------------------------------------------------
+2019-10-30-main-INFO -com.cg.service.AuthenticatorServiceImpl:<<Authenticating Employee>>
+2019-10-30-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Connection successfully established with the database for getting employee information
+2019-10-30-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Employee found with employee id: 1010
+2019-10-30-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Database connection closed and resources released
+2019-10-30-main-ERROR-com.cg.service.AuthenticatorServiceImpl:Login FAILED!!! Invalid credentials
+2019-10-30-main-INFO -com.cg.service.AuthenticatorServiceImpl:-----------------------------------------------------------------------------------------------------
+2019-10-30-main-INFO -com.cg.service.AuthenticatorServiceImpl:<<Authenticating Employee>>
+2019-10-30-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Connection successfully established with the database for getting employee information
+2019-10-30-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Employee found with employee id: 1010
+2019-10-30-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Database connection closed and resources released
+2019-10-30-main-ERROR-com.cg.service.AuthenticatorServiceImpl:Login FAILED!!! Invalid credentials
+2019-10-30-main-INFO -com.cg.service.AuthenticatorServiceImpl:-----------------------------------------------------------------------------------------------------
+2019-10-30-main-INFO -com.cg.service.AuthenticatorServiceImpl:<<Adding a new Employee>>
+2019-10-30-main-INFO -com.cg.service.AuthenticatorServiceImpl:New employee ADDEDD
+2019-10-30-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Connection successfully established with the database for adding new employee
+2019-10-30-main-INFO -com.cg.dao.AuthenticatorDaoImpl:New employee added with employee id: 100
+2019-10-30-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Database connection closed and resources released
+2019-10-30-main-INFO -com.cg.service.AuthenticatorServiceImpl:-----------------------------------------------------------------------------------------------------
+2019-10-30-main-INFO -com.cg.service.AuthenticatorServiceImpl:<<Authenticating Employee>>
+2019-10-30-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Connection successfully established with the database for getting employee information
+2019-10-30-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Employee found with employee id: 100
+2019-10-30-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Database connection closed and resources released
+2019-10-30-main-INFO -com.cg.service.AuthenticatorServiceImpl:Login SUCCESSFULL
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:Connection successfully established with the database for fetching training program from database
+2019-10-30-main-ERROR-com.cg.dao.TrainingProgramDaoImpl:Failure to fetch training program
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:Database connection closed and resources released
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:Connection successfully established with the database for fetching training program from database
+2019-10-30-main-ERROR-com.cg.dao.TrainingProgramDaoImpl:Failure to fetch training program
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:Database connection closed and resources released
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:Connection successfully established with the database to remove training program from database
+2019-10-30-main-ERROR-com.cg.dao.TrainingProgramDaoImpl:training program cannot be deleted.. training not found with code: 8000
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:Database connection closed and resources released
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:Connection successfully established with the database to remove training program from database
+2019-10-30-main-ERROR-com.cg.dao.TrainingProgramDaoImpl:training program cannot be deleted.. training not found with code: 8000
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:Database connection closed and resources released
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:Connection successfully established with the database to remove training program from database
+2019-10-30-main-ERROR-com.cg.dao.TrainingProgramDaoImpl:training program cannot be deleted.. training not found with code: 8000
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:Database connection closed and resources released
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:Connection successfully established with the database to remove training program from database
+2019-10-30-main-ERROR-com.cg.dao.TrainingProgramDaoImpl:training program cannot be deleted.. training not found with code: 8000
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:Database connection closed and resources released
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:Connection successfully established with the database to remove training program from database
+2019-10-30-main-ERROR-com.cg.dao.TrainingProgramDaoImpl:training program cannot be deleted.. training not found with code: 8000
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:Database connection closed and resources released
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:Connection successfully established with the database to remove training program from database
+2019-10-30-main-ERROR-com.cg.dao.TrainingProgramDaoImpl:training program cannot be deleted.. training not found with code: 8000
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:Database connection closed and resources released
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:Connection successfully established with the database to remove training program from database
+2019-10-30-main-ERROR-com.cg.dao.TrainingProgramDaoImpl:training program cannot be deleted.. training not found with code: 107
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:Database connection closed and resources released
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:Connection successfully established with the database to remove training program from database
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:Training program successfully removed for training code: 107
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:Database connection closed and resources released
+2019-10-30-main-INFO -com.cg.service.AuthenticatorServiceImpl:-----------------------------------------------------------------------------------------------------
+2019-10-30-main-INFO -com.cg.service.AuthenticatorServiceImpl:<<Adding a new Employee>>
+2019-10-30-main-INFO -com.cg.service.AuthenticatorServiceImpl:New employee ADDEDD
+2019-10-30-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Connection successfully established with the database for adding new employee
+2019-10-30-main-INFO -com.cg.dao.AuthenticatorDaoImpl:New employee added with employee id: 200
+2019-10-30-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Database connection closed and resources released
+2019-10-30-main-INFO -com.cg.service.AuthenticatorServiceImpl:-----------------------------------------------------------------------------------------------------
+2019-10-30-main-INFO -com.cg.service.AuthenticatorServiceImpl:<<Authenticating Employee>>
+2019-10-30-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Connection successfully established with the database for getting employee information
+2019-10-30-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Employee found with employee id: 200
+2019-10-30-main-INFO -com.cg.dao.AuthenticatorDaoImpl:Database connection closed and resources released
+2019-10-30-main-INFO -com.cg.service.AuthenticatorServiceImpl:Login SUCCESSFULL
+2019-10-30-main-INFO -com.cg.service.CoordinatorServiceImpl:-----------------------------------------------------------------------------------------------------
+2019-10-30-main-INFO -com.cg.service.CoordinatorServiceImpl:<<Validating Date>>
+2019-10-30-main-INFO -com.cg.service.CoordinatorServiceImpl:Date validated successfully..
+2019-10-30-main-INFO -com.cg.service.CoordinatorServiceImpl:-----------------------------------------------------------------------------------------------------
+2019-10-30-main-INFO -com.cg.service.CoordinatorServiceImpl:<<Validating Date>>
+2019-10-30-main-INFO -com.cg.service.CoordinatorServiceImpl:Date validated successfully..
+2019-10-30-main-INFO -com.cg.service.CoordinatorServiceImpl:-----------------------------------------------------------------------------------------------------
+2019-10-30-main-INFO -com.cg.service.CoordinatorServiceImpl:<<Validating Training Program>>
+2019-10-30-main-INFO -com.cg.service.CoordinatorServiceImpl:The given course exist.
+2019-10-30-main-ERROR-com.cg.service.CoordinatorServiceImpl:Training program cannot be added. Employee is not a faculty.
+2019-10-30-main-INFO -com.cg.service.CoordinatorServiceImpl:-----------------------------------------------------------------------------------------------------
+2019-10-30-main-INFO -com.cg.service.CoordinatorServiceImpl:<<Validating Date>>
+2019-10-30-main-INFO -com.cg.service.CoordinatorServiceImpl:Date validated successfully..
+2019-10-30-main-INFO -com.cg.service.CoordinatorServiceImpl:-----------------------------------------------------------------------------------------------------
+2019-10-30-main-INFO -com.cg.service.CoordinatorServiceImpl:<<Validating Date>>
+2019-10-30-main-INFO -com.cg.service.CoordinatorServiceImpl:Date validated successfully..
+2019-10-30-main-INFO -com.cg.service.CoordinatorServiceImpl:-----------------------------------------------------------------------------------------------------
+2019-10-30-main-INFO -com.cg.service.CoordinatorServiceImpl:<<Validating Training Program>>
+2019-10-30-main-INFO -com.cg.service.CoordinatorServiceImpl:The given course exist.
+2019-10-30-main-INFO -com.cg.service.CoordinatorServiceImpl:Employee is valid faculty.
+2019-10-30-main-INFO -com.cg.service.CoordinatorServiceImpl:Training program start date is after current date.
+2019-10-30-main-INFO -com.cg.service.CoordinatorServiceImpl:Training program end date is after start date.
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:Connection successfully established with the database for adding new training program
+2019-10-30-main-ERROR-com.cg.dao.TrainingProgramDaoImpl:Failure to add new training program
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:Database connection closed and resources released
+2019-10-30-main-INFO -com.cg.service.CoordinatorServiceImpl:-----------------------------------------------------------------------------------------------------
+2019-10-30-main-INFO -com.cg.service.CoordinatorServiceImpl:<<Validating Date>>
+2019-10-30-main-INFO -com.cg.service.CoordinatorServiceImpl:Date validated successfully..
+2019-10-30-main-INFO -com.cg.service.CoordinatorServiceImpl:-----------------------------------------------------------------------------------------------------
+2019-10-30-main-INFO -com.cg.service.CoordinatorServiceImpl:<<Validating Date>>
+2019-10-30-main-INFO -com.cg.service.CoordinatorServiceImpl:Date validated successfully..
+2019-10-30-main-INFO -com.cg.service.CoordinatorServiceImpl:-----------------------------------------------------------------------------------------------------
+2019-10-30-main-INFO -com.cg.service.CoordinatorServiceImpl:<<Validating Training Program>>
+2019-10-30-main-INFO -com.cg.service.CoordinatorServiceImpl:The given course exist.
+2019-10-30-main-INFO -com.cg.service.CoordinatorServiceImpl:Employee is valid faculty.
+2019-10-30-main-INFO -com.cg.service.CoordinatorServiceImpl:Training program start date is after current date.
+2019-10-30-main-INFO -com.cg.service.CoordinatorServiceImpl:Training program end date is after start date.
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:Connection successfully established with the database for adding new training program
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:New Training program added with training code: 10
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:Database connection closed and resources released
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:Connection successfully established with the database to remove training program from database
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:Training program successfully removed for training code: 600
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:Database connection closed and resources released
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:Connection successfully established with the database for adding new training program
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:New Training program added with training code: 800
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:Database connection closed and resources released
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:Connection successfully established with the database for adding new training program
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:New Training program added with training code: 800
+2019-10-30-main-INFO -com.cg.dao.TrainingProgramDaoImpl:Database connection closed and resources released

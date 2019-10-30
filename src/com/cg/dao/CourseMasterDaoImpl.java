@@ -149,7 +149,9 @@ public class CourseMasterDaoImpl implements CourseMasterDao {
 			stmt1.setInt(1, id);
 			ResultSet result = stmt1.executeQuery();
 			if(!result.next())
+			{
 				throw new InvalidCourseException("Course details can not be deleted.. course id not found.");
+			}
 			else {
 				PreparedStatement stmt = conn.prepareStatement(removeCourseQuery);
 				stmt.setInt(1, id);
