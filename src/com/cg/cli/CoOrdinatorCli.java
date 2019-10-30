@@ -259,8 +259,8 @@ public class CoOrdinatorCli {
 	private static void addTrainingProgram() {
 		String startDate, endDate;
 		TrainingProgram tp = new TrainingProgram();
-		System.out.println("Enter Training Code:");
-		tp.setTrainingCode(console.nextInt());
+//		System.out.println("Enter Training Code:");
+//		tp.setTrainingCode(console.nextInt());
 		System.out.println("Enter Course Code");
 		tp.setCourseCode(console.nextInt());
 		System.out.println("Enter Faculty Code :");

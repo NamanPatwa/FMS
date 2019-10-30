@@ -144,7 +144,7 @@ public class AdminCli {
 			CourseMaster c = service.updateCourse(course);
 			System.out.println("Course details are updated with course id: " + courseid);
 		} catch (InvalidCourseException e) {
-			System.out.println("Course details not updated..");
+			System.out.println("Course with ID: " + courseid + " does not exist");
 		}
 		
 	}
@@ -250,7 +250,7 @@ public class AdminCli {
 			int id = service.saveFacultySkillset(faculty);
 			System.out.println("Faculty details are saved with id: " + id);
 		} catch (FacultyDoesNotExist e) {
-			System.out.println("Faculty details are not saved..");
+			System.out.println("Faculty Does Not Exist");
 		}
 		
 		
