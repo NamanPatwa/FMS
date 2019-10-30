@@ -14,7 +14,7 @@ public interface AdminService {
 	String nameRule = "[A-Z][a-z]{1,}";
 	String daysRule = "[0-9]{1,}";
 	String facultyIdRule = "[0-9]{1,}";
-	String skillsetRule = "[A-Za-z]{1,}";
+	String skillsetRule = "[A-Za-z, ]{1,}";
 	
 	default boolean validateCourseId(String courseId) {
 		return courseId.matches(courseIdRule);

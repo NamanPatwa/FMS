@@ -88,9 +88,11 @@ public class ParticipantCli {
 				}while(!service.validatetrainingcode(trid));
 				trainingcode=Integer.parseInt(trid);
 				trcode = service.getAllTrainingCode(participantId,trainingcode);
+				
 				myLogger.info("Participant Id and training code matched successfully");
-				t++;
-			} catch (TrainingProgramNotFoundException e) {
+				if(!(trcode.size() == 0))
+					t++;
+				} catch (TrainingProgramNotFoundException e) {
 				myLogger.info("participant is not a part of training programme which he entered");
 				System.out.println("Either You have entered wrong Training code or u are not a part of that training which u have entered");
 				try {

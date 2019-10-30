@@ -55,7 +55,7 @@ public class AdminCli {
 	
 	
 	private void courseMaintenance() {
-		System.out.println("course maintenance -- Welcome");
+		System.out.println("Course Maintenance -- Welcome");
 		
 		int option = 0;
 		while(true) {
@@ -196,19 +196,14 @@ public class AdminCli {
 			System.out.println("Course Name: " + course.getCourseName());
 			System.out.println("Course Days: " + course.getDays());
 		} catch (InvalidCourseException e) {
-			System.out.println("Course does not exist..");
+			System.out.println("Course with ID: " + courseid + " does not exist..");
 		}
 		
 	}
 
 	private static void addCourseDetails() {
 		AdminService service = new AdminServiceImpl();
-		String courseid, coursename, coursedays;
-		
-//		do {
-//		System.out.println("Enter Course ID: ");
-//		courseid = console.next();
-//		} while(!service.validateId(courseid));
+		String coursename, coursedays;
 		
 		do {
 		System.out.println("Enter Course Name: ");
@@ -221,7 +216,6 @@ public class AdminCli {
 		} while(!service.validateDays(coursedays));
 		
 		CourseMaster course = new CourseMaster();
-		//course.setCourseId(Integer.parseInt(courseid));
 		course.setCourseName(coursename);
 		course.setDays(Integer.parseInt(coursedays));
 		
@@ -242,18 +236,13 @@ public class AdminCli {
 			System.out.println("Enter Faculty Id: ");
 			facultyId = console.next();
 		} while(!service.validateFacultyId(facultyId));
-			
+		console.nextLine();
 		do {
-			System.out.println("Enter Faculty skillset: ");
-			skillset = console.next();
+			System.out.println("Enter Faculty Skillset: (use comma for multiple entries)");
+			skillset = console.nextLine();
 		} while(!service.validateFacultySkillset(skillset));
 					
 		Faculty faculty = new Faculty();
-//		String previousSkillset = faculty.getSkillSet();
-//		System.out.println("previous skillset: " + previousSkillset);
-//		String newSkillset = previousSkillset.concat(skillset);
-//		System.out.println("new skillset: " + newSkillset);
-//		
 		faculty.setFacultyId(Integer.parseInt(facultyId));
 		faculty.setSkillSet(skillset);
 		

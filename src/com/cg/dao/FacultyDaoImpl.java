@@ -39,7 +39,7 @@ public class FacultyDaoImpl implements FacultyDao {
 					
 					String newSkillset = null, delimiter = " , ";
 					String previousSkillset = rs.getString(2);
-					System.out.println("previous skillset: " + previousSkillset);
+//					System.out.println("previous skillset: " + previousSkillset);
 					previousSkillset = previousSkillset.concat(delimiter);
 					newSkillset = previousSkillset.concat(faculty.getSkillSet());
 					stmt3.setString(1, newSkillset);
