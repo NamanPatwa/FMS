@@ -52,7 +52,7 @@ public class TrainingProgram {
 	 * method to get the course code
 	 * @return courseCode(Integer)
 	 */
-	int getCourseCode() {
+	public int getCourseCode() {
 		return courseCode;
 	}
 	/**
