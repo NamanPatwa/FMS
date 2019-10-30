@@ -13,7 +13,11 @@ import org.apache.log4j.Logger;
 import com.cg.bean.TrainingProgram;
 import com.cg.exception.InvalidCourseException;
 import com.cg.exception.TrainingProgramNotFoundException;
-
+/**
+ * FMS - Training Programme Dao Implementation
+ * @version 1.0
+ * This is DAO implementation class for Training Programme 
+ */
 public class TrainingProgramDaoImpl implements TrainingProgramDao {
 
 	static Logger myLogger =  Logger.getLogger(TrainingProgramDaoImpl.class);

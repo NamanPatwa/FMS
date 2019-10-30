@@ -9,47 +9,84 @@ import com.cg.exception.FacultyDoesNotExist;
 import com.cg.exception.InvalidCourseException;
 import com.cg.exception.ParticipantNotFoundException;
 import com.cg.exception.TrainingProgramNotFoundException;
-
+/**
+ * @version 1
+ * Date Oct 12 2019
+ * This is a coordinator service interface having regex validation and CRUD operation
+ */
 public interface CoordinatorService {
 	
 	String validateDate = "^([0-2][0-9]|(3)[0-1])(\\/)(((0)[0-9])|((1)[0-2]))(\\/)\\d{4}$";
 	String facultyIdRule = "[0-9]{1,}";
 	String trainingIdRule = "[0-9]{1,}";
 	String courseIdRule = "[0-9]{1,}";
-	
+	/**
+	 * Method to get list of all training programme
+	 * @return List<TrainingProgram> 
+	 * @throws TrainingProgramNotFoundException
+	 */
 	List<TrainingProgram> fetchAllTrainingProgram() throws TrainingProgramNotFoundException;
-	
+	/**
+	 * Method to fetch training programme by training code
+	 * @param code
+	 * @return TrainingProgram
+	 * @throws TrainingProgramNotFoundException
+	 */
 	TrainingProgram fetchTrainingProgramByTrainingCode(int code) throws TrainingProgramNotFoundException;
-	
+	/**
+	 * method to update Training programme 
+	 * @param training
+	 * @return TrainingProgram
+	 * @throws TrainingProgramNotFoundException
+	 */
 	TrainingProgram updateTrainingProgram(TrainingProgram training) throws TrainingProgramNotFoundException;
-	
+	/**
+	 * Method to remove Training Programme
+	 * @param code
+	 * @return Boolean
+	 * @throws TrainingProgramNotFoundException
+	 */
 	boolean removeTrainingProgram(int code) throws TrainingProgramNotFoundException;
-	
+	/**
+	 * Method to add Participant
+	 * @param participant
+	 * @return Participant
+	 * @throws ParticipantNotFoundException
+	 */
 	Participant addParticipant(Participant participant) throws ParticipantNotFoundException;
-	// check whether available & check role in employee master
-	// query : select * from employee_master where employee_id = ? and role = ?
-	// for given training code not already enrolled
-	// query: select * from training_participant_master where training_code = ? and participant_id = ?
-	// for given training check whether available and upcoming date mai hai
-	// query : select start_date from training_master where training_code = ?
-	// Then, add...
-	// query: insert into training_participant_master values (?, ?)
+	/**
+	 * Method to add Training Programme
+	 * @param training
+	 * @return
+	 * @throws TrainingProgramNotFoundException
+	 * @throws FacultyDoesNotExist
+	 * @throws InvalidCourseException
+	 */
 	
 	TrainingProgram addTrainingProgram(TrainingProgram training) throws TrainingProgramNotFoundException, FacultyDoesNotExist, InvalidCourseException;
-	// first getcourse_code match course table if exist
-	// get course: select * from course_master where course_id = ?;
-	// check for faculty code exist and role is faculty
-	// query : select * from faculty_master where faculty_id = ? and role = ?
-	// then add : insert into 	training_master values(?, ?, ?, ? ,?)
-	// for service ONLY -->> 
-	// date validation : date should be valid, end date should be greater than start date
-	// current date se jyada dono
 	
+	/**
+	 * Method to validate Date
+	 * @param date
+	 * @return
+	 */
 	boolean validateDate(String date);
-
+	/**
+	 * Method to validate Faculty Id
+	 * @param facultyid
+	 * @return
+	 */
 	boolean validateFacultyId(String facultyid);
-
+	/**
+	 * Method to validate Training Id
+	 * @param trainingId
+	 * @return
+	 */
 	boolean validateTrainingId(String trainingId);
-	
+	/**
+	 * Method to validate Course Id
+	 * @param courseId
+	 * @return
+	 */
 	boolean validateCourseId(String courseId);
 }

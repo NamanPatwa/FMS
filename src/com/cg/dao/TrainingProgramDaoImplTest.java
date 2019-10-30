@@ -81,6 +81,7 @@ public class TrainingProgramDaoImplTest {
 			}
 	}
 	
+
 	@Test
 	public void testUpdateTrainingProgram() {
 		Date startDate = new Date(2030, 02, 20);
@@ -94,4 +95,5 @@ public class TrainingProgramDaoImplTest {
 		}
 		assertEquals(1001, utp.getCourseCode());
 	}
+
 }

@@ -15,7 +15,12 @@ import org.apache.log4j.Logger;
 import com.cg.bean.EmployeeMaster;
 import com.cg.dao.AuthenticatorDao;
 import com.cg.dao.AuthenticatorDaoImpl;
-
+/**
+ *@author Bhushan Sonwane
+ *@version 1
+ *Date Oct 8 2019
+ *This is authenticatorServiceImpl class which implements interface authenticatorService
+ */
 
 public class AuthenticatorServiceImpl implements AuthenticatorService {
 	static Logger myLogger =  Logger.getLogger(AuthenticatorServiceImpl.class);
@@ -28,10 +33,17 @@ public class AuthenticatorServiceImpl implements AuthenticatorService {
 	
 	private AuthenticatorDao dao;
 	
+	/**
+	 * Default constructor
+	 */
 	public AuthenticatorServiceImpl() {
 		dao = new AuthenticatorDaoImpl(); 
 	}
-	
+	/**
+	 * Method to generate encrypted code
+	 * @param length
+	 * @return
+	 */
 	private static Optional<String> generateSalt(final int length){
 		if(length < 1) {
 			System.out.println("error in generateSalt : length must be > 0 ");
@@ -42,7 +54,12 @@ public class AuthenticatorServiceImpl implements AuthenticatorService {
 		RAND.nextBytes(salt);
 		return Optional.of(Base64.getEncoder().encodeToString(salt));
 	}
-	
+	/**
+	 * Method to set password in encrypted manner
+	 * @param password
+	 * @param salt
+	 * @return
+	 */
 private static Optional<String> hashPassword (String password, String salt){
 		
 		// converting the password from string to char array

@@ -21,7 +21,11 @@ import com.cg.exception.FacultyDoesNotExist;
 import com.cg.exception.InvalidCourseException;
 import com.cg.exception.ParticipantNotFoundException;
 import com.cg.exception.TrainingProgramNotFoundException;
-
+/**
+ * @version 1
+ * Date Oct 12 2019
+ * This is a coordinatorserviceimpl class having implementation of CoordinatorService
+ */
 public class CoordinatorServiceImpl implements CoordinatorService {
 	
 	static Logger myLogger =  Logger.getLogger(CoordinatorServiceImpl.class);
@@ -32,6 +36,9 @@ public class CoordinatorServiceImpl implements CoordinatorService {
 	private CourseMasterDao courseDao;
 	private FacultyDao facultyDao;
 	
+	/**
+	 * Default constructor
+	 */
 	public CoordinatorServiceImpl() {
 		trainingProgramDao = new TrainingProgramDaoImpl();
 		employeeDao = new EmployeeDaoImpl();

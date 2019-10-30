@@ -7,7 +7,11 @@ import com.cg.bean.FeedbackReport;
 import com.cg.dao.FeedbackReportDao;
 import com.cg.dao.FeedbackReportDaoImpl;
 import com.cg.exception.FeedbackNotFoundException;
-
+/**
+ * @version 1
+ * Date Oct 12 2019
+ * This is a FeedbackReportserviceimpl class which implements Feedbackservice interface
+ */
 public class FeedbackReportServiceImpl implements FeedbackReportService {
 	
 	private FeedbackReportDao feedbackDao;

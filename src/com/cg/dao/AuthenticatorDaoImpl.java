@@ -10,6 +10,12 @@ import org.apache.log4j.PropertyConfigurator;
 
 import com.cg.bean.EmployeeMaster;
 
+/**
+ * FMS - Authenticator DAO Impl
+ * @version 1.0
+ * This is Authenticator DAO Implementation
+ */
+
 public class AuthenticatorDaoImpl implements AuthenticatorDao{
 	static Logger myLogger =  Logger.getLogger(AuthenticatorDaoImpl.class);
 

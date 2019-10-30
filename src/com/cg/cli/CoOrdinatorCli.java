@@ -16,7 +16,11 @@ import com.cg.exception.ParticipantNotFoundException;
 import com.cg.exception.TrainingProgramNotFoundException;
 import com.cg.service.CoordinatorService;
 import com.cg.service.CoordinatorServiceImpl;
-
+/**
+ * @version 1
+ * Date Oct 6 2019
+ * This is a co-ordinator cli having functionality related to co-ordinator
+ */
 public class CoOrdinatorCli {
 	private static CoordinatorService service;
 	private static Scanner console;
@@ -28,7 +32,11 @@ public class CoOrdinatorCli {
 	public CoOrdinatorCli() {
 		service = new CoordinatorServiceImpl();
 	}
-	
+	/**
+	 * This is a coordinatorView method having training programme maintenance,Participant enrollment and
+	 * view feedback as functionality
+	 * @param employee
+	 */
 	void coordinatorView(EmployeeMaster employee) {
 		System.out.println("Co-Ordinator -- Welcome");
 		int option = 0;
@@ -68,7 +76,9 @@ public class CoOrdinatorCli {
 		}		
 	}
 
-	
+	/**
+	 * This is a Participant Enrollment method
+	 */
 	private void participantEnrollment() {
 		
 		int option = 0;
@@ -99,7 +109,9 @@ public class CoOrdinatorCli {
 			if(option == 2) break;
 		}	
 	}
-	
+	/**
+	 * This is a Training Programme Maintenance Method
+	 */
 	private void trainingProgramMaintenance() {
 		
 		int option = 0;
@@ -111,7 +123,7 @@ public class CoOrdinatorCli {
 					System.out.println("1 - Add Training Program");
 					System.out.println("2 - Show All Training Program");
 					System.out.println("3 - Show Training Program by Training Code");
-					System.out.println("4 - Update Training Program");
+					//System.out.println("4 - Update Training Program");
 					System.out.println("5 - Remove Training Program");
 					System.out.println("6 - Back");
 		
@@ -148,12 +160,14 @@ public class CoOrdinatorCli {
 		}
 	}
 
-	
+	/**
+	 * Method to remove Training Programme
+	 */
 
 	private static void removeTrainingProgram() {
 
 		int code = 0;
-		System.out.println("Enter Course Code: ");
+		System.out.println("Enter Training Code: ");
 		code = console.nextInt();
 		try {
 			service.removeTrainingProgram(code);
@@ -164,7 +178,9 @@ public class CoOrdinatorCli {
 		
 	}	
 
-
+	/**
+	 * Method to update Training Programme
+	 */
 	private static void updateTrainingProgram() {
 		CoordinatorService service = new CoordinatorServiceImpl();
 		String trainingCode, courseCode, facultyCode, startDate, endDate;
@@ -228,7 +244,9 @@ public class CoOrdinatorCli {
 			System.out.println("Training Program Does Not Exists");
 		} 
 	}
-
+	/**
+	 * Method to show the training programme by Id
+	 */
 	private static void showTrainingProgramById() {
 		int code = 0;
 		System.out.println("Enter Training Id: ");
@@ -241,7 +259,9 @@ public class CoOrdinatorCli {
 		}
  	
 	}
-
+	/**
+	 * Method to show all Training Programme
+	 */
 	private static void showAllTrainingProgram() {
 
 		try {
@@ -255,19 +275,21 @@ public class CoOrdinatorCli {
 		}
 
 	}
-
+	/**
+	 * Method to add Training Programme
+	 */
 	private static void addTrainingProgram() {
 		String startDate, endDate;
 		TrainingProgram tp = new TrainingProgram();
-		System.out.println("Enter Training Code:");
-		tp.setTrainingCode(console.nextInt());
+//		System.out.println("Enter Training Code:");
+//		tp.setTrainingCode(console.nextInt());
 		System.out.println("Enter Course Code");
 		tp.setCourseCode(console.nextInt());
 		System.out.println("Enter Faculty Code :");
 		tp.setFacultyCode(console.nextInt());
 		
 		do{
-			System.out.println("Enter Start Date");
+			System.out.println("Enter Start Date (DD/MM/YYYY) ");
 			startDate = console.next();
 		} while (!service.validateDate(startDate));
 		
@@ -286,7 +308,7 @@ public class CoOrdinatorCli {
 		
 		
 		do {
-		System.out.println("Enter End Date");
+		System.out.println("Enter End Date (DD/MM/YYYY)");
 		endDate = console.next();
 		} while (!service.validateDate(endDate));
 		
@@ -309,7 +331,9 @@ public class CoOrdinatorCli {
 			System.out.println("Invalid Course Code");
 		}
 	}
-
+	/**
+	 * Method to add Participant
+	 */
 	private static void addParticipant() {
 		Participant participant = new Participant();
 		

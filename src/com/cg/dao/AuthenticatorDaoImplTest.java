@@ -11,6 +11,10 @@ import org.junit.Test;
 
 import com.cg.bean.EmployeeMaster;
 
+/**
+ * FMS - Authenticator Test Cases
+ */
+
 public class AuthenticatorDaoImplTest {
 
 	AuthenticatorDao dao;

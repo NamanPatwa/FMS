@@ -14,7 +14,11 @@ import com.cg.bean.TrainingProgram;
 import com.cg.exception.FacultyDoesNotExist;
 import com.cg.exception.InvalidCourseException;
 import com.cg.exception.TrainingProgramNotFoundException;
-
+/**
+ * @version 1
+ * Date Oct 12 2019
+ * This is a coordinatorserviceimplTest class 
+ */
 public class CoordinatorServiceImplTest {
 
 	CoordinatorService service;

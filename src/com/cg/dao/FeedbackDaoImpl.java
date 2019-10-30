@@ -15,7 +15,11 @@ import com.cg.bean.Participant;
 import com.cg.exception.FeedbackMasterNotExist;
 import com.cg.exception.TrainingProgramNotFoundException;
 import com.cg.service.ParticipantServiceImpl;
-
+/**
+ * FMS - Feedback Dao implementation
+ * @version 1.0
+ * This is DAO implementation  class for Feedback
+ */
 public class FeedbackDaoImpl implements FeedbackDao {
 	static Logger myLogger = Logger.getLogger(FeedbackDaoImpl.class);
 

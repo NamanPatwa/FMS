@@ -8,7 +8,11 @@ import java.sql.SQLException;
 import com.cg.bean.EmployeeMaster;
 import com.cg.exception.FacultyDoesNotExist;
 import com.cg.exception.ParticipantNotFoundException;
-
+/**
+ * FMS - Employee Dao Implementation
+ * @version 1.0
+ * This is DAO Implementation class for Employee
+ */
 public class EmployeeDaoImpl implements EmployeeDao {
 
 	@Override

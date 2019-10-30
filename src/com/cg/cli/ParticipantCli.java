@@ -16,7 +16,11 @@ import com.cg.exception.FeedbackMasterNotExist;
 import com.cg.exception.TrainingProgramNotFoundException;
 import com.cg.service.ParticipantService;
 import com.cg.service.ParticipantServiceImpl;
-
+/**
+ * @author Premchandra Kumar
+ * @version 1 Date Oct 12 2019 This is a Participant Cli which has a method to
+ *          add feedback and verify training code
+ */
 public class ParticipantCli {
 	static Logger myLogger =  Logger.getLogger(ParticipantCli.class);
 	private static Scanner console;
@@ -26,7 +30,10 @@ public class ParticipantCli {
 	static {
 		console = new Scanner(System.in);
 	}
-	
+	/**
+	 * Participant View method
+	 * @param employee
+	 */
 	void participantView(EmployeeMaster employee) throws InterruptedException, TrainingProgramNotFoundException, SQLException {
 		participantId =employee.getEmployeeId();
 		
@@ -57,6 +64,9 @@ public class ParticipantCli {
 			if(option == 2) break;
 		}
 	}
+	/**
+	 * Method to fetch Training code and validate 
+	 */
 	private void fetchTrainingCode(){
 		ParticipantService service = new ParticipantServiceImpl();
 		int t = 0;
@@ -104,7 +114,9 @@ public class ParticipantCli {
 		} while (t != 1);
 
 	}
-	
+	 /**
+	 * Method To add feedback 
+	 */
 	private void addFeedback(){
 		ParticipantService service = new ParticipantServiceImpl();
 		String prs_cmm, clrfy_doubt, tm, hnd_out, hw_sw_ntwrk,comm,sugg;

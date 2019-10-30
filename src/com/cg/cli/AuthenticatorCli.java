@@ -15,6 +15,7 @@ public class AuthenticatorCli {
 
 	private static Scanner console;
 
+	
 	static {
 		console = new Scanner(System.in);
 	}

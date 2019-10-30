@@ -11,7 +11,11 @@ import java.util.List;
 import com.cg.bean.Participant;
 import com.cg.exception.ParticipantNotFoundException;
 import com.cg.exception.TrainingProgramNotFoundException;
-
+/**
+ * FMS - Participant Dao Impl
+ * @version 1.0
+ * This is DAO implementation class for Participant
+ */
 public class ParticipantDaoImpl implements ParticipantDao {
 
 	@Override

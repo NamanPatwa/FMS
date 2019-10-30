@@ -5,7 +5,11 @@ import java.util.List;
 import com.cg.bean.FeedbackParameters;
 import com.cg.bean.FeedbackReport;
 import com.cg.exception.FeedbackNotFoundException;
-
+/**
+ * FMS - Feedback Report Dao
+ * @version 1.0
+ * This is DAO interface for Feedback Report 
+ */
 
 public interface FeedbackReportDao {
 
@@ -17,15 +21,40 @@ public interface FeedbackReportDao {
 	
 	//String feedbackDefaulters = "SELECT TM.TRAINING_CODE, TM.START_DATE, TM.END_DATE, EM.EMPLOYEE_NAME, EM1.EMPLOYEE_NAME, FM.FB_PRS_COMM, FM.FB_CLRFY_DBTS, FM.FB_TM, FM.FB_HND_OUT, FM.FB_HW_SW_NTWRK FROM TRAINING_PARTICIPANT_MASTER TP, FEEDBACK_MASTER FM, EMPLOYEE_MASTER EM, EMPLOYEE_MASTER EM1, TRAINING_MASTER TM WHERE TP.PARTICIPANT_ID = FM.PARTICIPANT_ID(+) AND FM.PARTICIPANT_ID IS NULL AND TM.TRAINING_CODE = TP.TRAINING_CODE AND EM1.EMPLOYEE_ID = TP.PARTICIPANT_ID AND EM.EMPLOYEE_ID = TM.FACULTY_CODE AND EXTRACT(MONTH FROM END_DATE) = ?";
 	String feedbackDefaulters = "SELECT TM.TRAINING_CODE, TM.START_DATE, TM.END_DATE, EM.EMPLOYEE_NAME, EM1.EMPLOYEE_NAME, FM.FB_PRS_COMM, FM.FB_CLRFY_DBTS, FM.FB_TM, FM.FB_HND_OUT, FM.FB_HW_SW_NTWRK FROM TRAINING_PARTICIPANT_MASTER TP, FEEDBACK_MASTER FM, EMPLOYEE_MASTER EM, EMPLOYEE_MASTER EM1, TRAINING_MASTER TM WHERE TP.TRAINING_CODE = FM.TRAINING_CODE(+) AND TP.PARTICIPANT_ID = FM.PARTICIPANT_ID(+) AND FM.PARTICIPANT_ID IS NULL AND TM.TRAINING_CODE = TP.TRAINING_CODE AND EM1.EMPLOYEE_ID = TP.PARTICIPANT_ID AND EM.EMPLOYEE_ID = TM.FACULTY_CODE AND EXTRACT(MONTH FROM END_DATE)=?";
-	
+	/**
+	 * 
+	 * @param month
+	 * @return
+	 * @throws FeedbackNotFoundException
+	 */
 	List<FeedbackReport> byMonth(int month) throws FeedbackNotFoundException;
-	
+	/**
+	 * 
+	 * @param facultyCode
+	 * @param month
+	 * @return
+	 * @throws FeedbackNotFoundException
+	 */
 	List<FeedbackReport> byFacultyForMonth(int facultyCode, int month) throws FeedbackNotFoundException;
-	
+	/**
+	 * 
+	 * @param month
+	 * @return
+	 * @throws FeedbackNotFoundException
+	 */
 	List<FeedbackReport> feedbackDefaultersByMonth(int month) throws FeedbackNotFoundException;
-	
+	/**
+	 * 
+	 * @param month
+	 * @return
+	 */
 	FeedbackParameters getAvgByMonth(int month);
-	
+	/**
+	 * 
+	 * @param month
+	 * @param facultyCode
+	 * @return
+	 */
 	FeedbackParameters getAvgByMonthAndFaculty(int month, int facultyCode);
 	
 }

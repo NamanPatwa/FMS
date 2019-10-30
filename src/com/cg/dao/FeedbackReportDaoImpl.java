@@ -10,7 +10,11 @@ import java.util.List;
 import com.cg.bean.FeedbackParameters;
 import com.cg.bean.FeedbackReport;
 import com.cg.exception.FeedbackNotFoundException;
-
+/**
+ * FMS - Feedback Report Dao Implementation
+ * @version 1.0
+ * This is DAO  implementation class for Feedback Report 
+ */
 public class FeedbackReportDaoImpl implements FeedbackReportDao {
 
 	@Override
