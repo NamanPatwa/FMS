@@ -173,15 +173,12 @@ public class CourseMasterDaoImpl implements CourseMasterDao {
 	public boolean courseExist(int id) throws InvalidCourseException {
 		Connection conn = null;
 		CourseMaster course = null;
-		System.out.println("pehle");
 
 		try {
 			conn = JdbcUtil.getConnection();
 			PreparedStatement stmt = conn.prepareStatement(getCourseQuery);
 			stmt.setInt(1, id);
-			System.out.println("before get course");
 			ResultSet result = stmt.executeQuery();
-			System.out.println("after");
 			if(result.next()) {
 				return true;
 			} else
