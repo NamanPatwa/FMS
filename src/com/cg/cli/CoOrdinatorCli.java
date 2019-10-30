@@ -111,7 +111,7 @@ public class CoOrdinatorCli {
 					System.out.println("1 - Add Training Program");
 					System.out.println("2 - Show All Training Program");
 					System.out.println("3 - Show Training Program by Training Code");
-					System.out.println("4 - Update Training Program");
+					//System.out.println("4 - Update Training Program");
 					System.out.println("5 - Remove Training Program");
 					System.out.println("6 - Back");
 		
@@ -153,7 +153,7 @@ public class CoOrdinatorCli {
 	private static void removeTrainingProgram() {
 
 		int code = 0;
-		System.out.println("Enter Course Code: ");
+		System.out.println("Enter Training Code: ");
 		code = console.nextInt();
 		try {
 			service.removeTrainingProgram(code);
@@ -267,7 +267,7 @@ public class CoOrdinatorCli {
 		tp.setFacultyCode(console.nextInt());
 		
 		do{
-			System.out.println("Enter Start Date");
+			System.out.println("Enter Start Date (DD/MM/YYYY) ");
 			startDate = console.next();
 		} while (!service.validateDate(startDate));
 		
@@ -286,7 +286,7 @@ public class CoOrdinatorCli {
 		
 		
 		do {
-		System.out.println("Enter End Date");
+		System.out.println("Enter End Date (DD/MM/YYYY)");
 		endDate = console.next();
 		} while (!service.validateDate(endDate));
 		
